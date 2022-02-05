@@ -24,7 +24,6 @@ int main(void) {
 	int balance = 0;		// 잔액 저장공간
 	int secondOder = 0;		// 첫번째 주문을 완료 후 재 주문인지 확인하는 저장공간
 	int totalCashStock = 0;		// 자판기내 잔액의 총합을 표시하는 저장공간
-	int cashStockCheck = 0;		// 자판기내 잔액이 충분한지 확인하는 저장공간
 	int cash1000 = 0;		// 1000원권 관련 정보를 저장하는 저장공간
 	int cash500 = 0;		// 500원권 관련 정보를 저장하는 저장공간
 	int cash100 = 0;		// 100원권 관련 정보를 저장하는 저장공간
