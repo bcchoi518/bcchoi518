@@ -5,48 +5,47 @@
 
 int main(void) {
 
-	char title[30] = "!!BC Vending Machine!!";
-	char menu[100] = "1. 상품 관리\n2. 잔액 관리\n3. 상품 판매\n4. 프로그램 종료";
-	char arrProductName[MAXROW][MAXCOL][100] = { "", };
-	char arrChartemp[100] = "";
-	char balanceReturn = ' ';
-	char choiceTemp = ' ';
-	int arrProductStock[MAXROW][MAXCOL] = { 0, };
-	int arrProductPrice[MAXROW][MAXCOL] = { 0, };
-	int arrCashStock[3] = { 0,0,0 };
-	int menuSelection = 0;
-	int subMenuSelection = 0;
-	int productNum = 0;
-	int productCnt = 0;
-	int productRow = 0;
-	int productCol = 0;
-	int monetaryUnit = 0;
-	int inputMoney = 0;
-	int balance = 0;
-	int secondOder = 0;
-	int totalCashStock = 0;
-	int cashStockCheck = 0;
-	int cash1000 = 0;
-	int cash500 = 0;
-	int cash100 = 0;
-	int saleStatus = 0;
+	char title[30] = "!!BC Vending Machine!!";		// 상품 판매시 자판기 타이틀
+	char menu[100] = "1. 상품 관리\n2. 잔액 관리\n3. 상품 판매\n4. 프로그램 종료";		// 자판기 관리 메뉴
+	char arrProductName[MAXROW][MAXCOL][100] = { "", };		// 상품 이름 저장공간
+	char arrChartemp[100] = "";		// 상품 이름과 대조해보기 위한 배열 임시 저장공간
+	char balanceReturn = ' ';		// 잔돈 반환 여부를 입력받는 저장공간
+	int arrProductStock[MAXROW][MAXCOL] = { 0, };		// 상품 재고 저장공간
+	int arrProductPrice[MAXROW][MAXCOL] = { 0, };		// 상품 가격 저장공간
+	int arrCashStock[3] = { 10,10,10 };		// 자판기내 잔액 저장 공간 ([0] : 1000, [1] : 500, [2] : 100)
+	int menuSelection = 0;		// 자판기 관리 메뉴의 선택 입력을 받는 저장공간
+	int subMenuSelection = 0;		// 자판기 관리 메뉴의 하위 메뉴 선택 입력을 받는 저장공간
+	int productNum = 0;		// 상품 번호를 입력 받는 저장공간
+	int productCnt = 0;		// 상품 번호를 표시하는 저장공간
+	int productRow = 0;		// 특정 상품의 행을 표시하는 저장공간
+	int productCol = 0;		// 특정 상품의 열을 표시하는 저장공간
+	int monetaryUnit = 0;		// 자판기 잔액 관리 및 잔액 반환을 위해 화폐단위로 관리하는 저장공간
+	int inputMoney = 0;		// 사용자가 투입하는 금액을 입력받는 저장공간
+	int balance = 0;		// 잔액 저장공간
+	int secondOder = 0;		// 첫번째 주문을 완료 후 재 주문시 사용되는 스위치
+	int totalCashStock = 0;		// 자판기내 잔액의 총합을 표시하는 저장공간
+	int cashStockCheck = 0;		// 자판기내 잔액이 충분한지 확인하는 저장공간
+	int cash1000 = 0;		// 1000원권 관련 정보를 저장하는 저장공간
+	int cash500 = 0;		// 500원권 관련 정보를 저장하는 저장공간
+	int cash100 = 0;		// 100원권 관련 정보를 저장하는 저장공간
+	int saleStatus = 0;		// 자판기 판매 상태 여부를 확인하는 저장공간
+	
 
-	while (menuSelection != 4) {
-		printf("%s\n", menu);
-		printf("항목 선택 : ");
-		scanf_s("%d", &menuSelection);
-		subMenuSelection = 0;
+	while (menuSelection != 4) {		// 메뉴 선택 값이 4가 아니면 반복문 실행
+		printf("%s\n", menu);		// 자판기 관리 메뉴 출력
+		printf("항목 선택 : ");		// 자판기 관레 메뉴 입력을 받기 위한 안내문
+		scanf_s("%d", &menuSelection);		// 자판기 관리 메뉴를 menuSelection에 입력받음
+		subMenuSelection = 0;		// 자판기 관리 메뉴의 하위 메뉴 변수를 초기화 (자판기 관리 메뉴를 넘나들때 하위 메뉴 변수에 값이 있으면 오작동을 일으킴)
 
-
-		switch (menuSelection) {
-		case 1:// 상품 관리
-			while (subMenuSelection != 4) {
+		switch (menuSelection) {		// 메뉴 선택 값에 따른 각 기능을 수행
+		case 1:		// 상품 관리 메뉴 수행
+			while (subMenuSelection != 4) {		// 하위 메뉴의 선택값이 4가 아니면 반복문 수행
 				printf("\n============================================상품 재고 현황============================================\n\n");
-				productCnt = 0;
-				for (int i = MAXROW - 1; i >= 0; i--) {
-					for (int k = MAXCOL - 1; k >= 0; k--) {
-						productCnt++;
-						if (arrProductStock[(MAXROW - 1) - i][(MAXCOL - 1) - k] == 0) {
+				productCnt = 0;		// 상품 번호를 항상 1부터 출력하기 위한 초기화
+				for (int i = MAXROW - 1; i >= 0; i--) {		// 자판기내 상품 진열 행의 최대값부터 감소되면서 반복문 수행
+					for (int k = MAXCOL - 1; k >= 0; k--) {		// 자판기내 상품 진열 열의 최대값부터 감소되면서 반복문 수행
+						productCnt++;		// 상품 번호를 1씩 증가
+						if (arrProductStock[(MAXROW - 1) - i][(MAXCOL - 1) - k] == 0) {		// 
 							strcpy_s(arrProductName[(MAXROW - 1) - i][(MAXCOL - 1) - k], sizeof(arrProductName[(MAXROW - 1) - i][(MAXCOL - 1) - k]), "재고없음");
 							arrProductPrice[(MAXROW - 1) - i][(MAXCOL - 1) - k] = 0;
 							printf("%2d.%8s  ", productCnt, arrProductName[(MAXROW - 1) - i][(MAXCOL - 1) - k]);
@@ -192,6 +191,7 @@ int main(void) {
 			case 1://판매 시작
 				while (subMenuSelection != 2) {
 					cashStockCheck = 0;
+					totalCashStock = (arrCashStock[0] * 1000) + (arrCashStock[1] * 500) + (arrCashStock[2] * 100);
 					for (int i = 0; i < 3; i++) {
 						if (totalCashStock == 0) {
 							cashStockCheck = 1;
@@ -216,7 +216,7 @@ int main(void) {
 							arrCashStock[2] += cash100;
 						}
 						else {
-							printf("투입 최소 단위는 100원 입니다. (반환 금액 : %d)", inputMoney);
+							printf("투입 최소 단위는 100원 입니다. (반환 금액 : %d)\n\n", inputMoney);
 							break;
 						}
 					}
@@ -264,7 +264,7 @@ int main(void) {
 					if (!cashStockCheck || secondOder > 0) {
 						printf("상품번호를 입력하여 주십시오 : "); 
 						scanf_s("%d", &productNum);
-
+						printf("\n");
 						productRow = (productNum - 1) / 8;
 						productCol = (productNum - 1) % 8;
 						balance = inputMoney - arrProductPrice[productRow][productCol];
@@ -312,6 +312,8 @@ int main(void) {
 								printf("반환된 잔액은 1000원권 %d장, 500원권 %d개, 100원권 %d개입니다.\n", cash1000, cash500, cash100);
 								printf("이용해 주셔서 감사합니다.\n\n");
 								subMenuSelection = 2;
+								secondOder = 0;
+								inputMoney = 0;
 								break;
 							}
 							else if (balanceReturn == 'N' || balanceReturn == 'n') {
