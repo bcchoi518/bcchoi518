@@ -45,7 +45,7 @@ int main(void) {
 				for (int i = MAXROW - 1; i >= 0; i--) {		// 자판기내 상품 진열 행의 최대값부터 감소되면서 반복문 수행
 					for (int k = MAXCOL - 1; k >= 0; k--) {		// 자판기내 상품 진열 열의 최대값부터 감소되면서 반복문 수행
 						productCnt++;		// 상품 번호를 1씩 증가
-						if (arrProductStock[(MAXROW - 1) - i][(MAXCOL - 1) - k] == 0) {		// 
+						if (arrProductStock[(MAXROW - 1) - i][(MAXCOL - 1) - k] == 0) {		// 가나다라마사바사아
 							strcpy_s(arrProductName[(MAXROW - 1) - i][(MAXCOL - 1) - k], sizeof(arrProductName[(MAXROW - 1) - i][(MAXCOL - 1) - k]), "재고없음");
 							arrProductPrice[(MAXROW - 1) - i][(MAXCOL - 1) - k] = 0;
 							printf("%2d.%8s  ", productCnt, arrProductName[(MAXROW - 1) - i][(MAXCOL - 1) - k]);
