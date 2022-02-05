@@ -42,28 +42,28 @@ int main(void) {
 			while (subMenuSelection != 4) {		// 하위 메뉴의 선택값이 4가 아니면 반복문 수행
 				printf("\n============================================상품 재고 현황============================================\n\n");
 				productCnt = 0;		// 상품 번호를 항상 1부터 출력하기 위한 초기화
-				for (int i = MAXROW - 1; i >= 0; i--) {		// 자판기내 상품 진열 행의 최대값부터 감소되면서 반복문 수행
-					for (int k = MAXCOL - 1; k >= 0; k--) {		// 자판기내 상품 진열 열의 최대값부터 감소되면서 반복문 수행
+				for (int i = 0; i < MAXROW; i++) {		// 자판기내 상품 진열 행의 최대값부터 감소되면서 반복문 수행
+					for (int k = 0; k < MAXCOL; k++) {		// 자판기내 상품 진열 열의 최대값부터 감소되면서 반복문 수행
 						productCnt++;		// 상품 번호를 1씩 증가
-						if (arrProductStock[(MAXROW - 1) - i][(MAXCOL - 1) - k] == 0) {		// 가나다라마사바사아
-							strcpy_s(arrProductName[(MAXROW - 1) - i][(MAXCOL - 1) - k], sizeof(arrProductName[(MAXROW - 1) - i][(MAXCOL - 1) - k]), "재고없음");
-							arrProductPrice[(MAXROW - 1) - i][(MAXCOL - 1) - k] = 0;
-							printf("%2d.%8s  ", productCnt, arrProductName[(MAXROW - 1) - i][(MAXCOL - 1) - k]);
+						if (arrProductStock[i][k] == 0) {		// 가나다라마사바사아
+							strcpy_s(arrProductName[i][k], sizeof(arrProductName[i][k]), "재고없음");
+							arrProductPrice[i][k] = 0;
+							printf("%2d.%8s  ", productCnt, arrProductName[i][k]);
 						}
 						else {
-							printf("%2d.%8s  ", productCnt, arrProductName[(MAXROW - 1) - i][(MAXCOL - 1) - k]);
+							printf("%2d.%8s  ", productCnt, arrProductName[i][k]);
 						}
-						if (k % MAXCOL == 0) { break; }
+						if (k > 0 && k % MAXCOL == 0) { break; }
 					}
 					printf("\n");
-					for (int k = MAXCOL - 1; k >= 0; k--) {
-						printf("%9d원  ", arrProductPrice[(MAXROW - 1) - i][(MAXCOL - 1) - k]);
-						if (k % MAXCOL == 0) { break; }
+					for (int k = 0; k < MAXCOL; k++) {
+						printf("%9d원  ", arrProductPrice[i][k]);
+						if (k > 0 && k % MAXCOL == 0) { break; }
 					}
 					printf("\n");
-					for (int k = MAXCOL - 1; k >= 0; k--) {
-						printf("%9d개  ", arrProductStock[(MAXROW - 1) - i][(MAXCOL - 1) - k]);
-						if (k % MAXCOL == 0) { break; }
+					for (int k = 0; k < MAXCOL; k++) {
+						printf("%9d개  ", arrProductStock[i][k]);
+						if (k > 0 && k % MAXCOL == 0) { break; }
 					}
 					printf("\n");
 					printf("\n");
@@ -222,30 +222,31 @@ int main(void) {
 					}
 					printf("\n========================================%s========================================\n\n", title);
 					productCnt = 0;
-					for (int i = MAXROW - 1; i >= 0; i--) {
-						for (int k = MAXCOL - 1; k >= 0; k--) {
+					for (int i = 0; i < MAXROW; i++) {
+						for (int k = 0; k < MAXCOL; k++) {
 							productCnt++;
-							if (arrProductStock[(MAXROW - 1) - i][(MAXCOL - 1) - k] == 0) {
-								strcpy_s(arrProductName[(MAXROW - 1) - i][(MAXCOL - 1) - k], sizeof(arrProductName[(MAXROW - 1) - i][(MAXCOL - 1) - k]), "품절");
-								arrProductPrice[(MAXROW - 1) - i][(MAXCOL - 1) - k] = 0;
-								printf("%2d.%8s  ", productCnt, arrProductName[(MAXROW - 1) - i][(MAXCOL - 1) - k]);
+							if (arrProductStock[i][k] == 0) {
+								strcpy_s(arrProductName[i][k], sizeof(arrProductName[i][k]), "품절");
+								arrProductPrice[i][k] = 0;
+								printf("%2d.%8s  ", productCnt, arrProductName[i][k]);
 							}
 							else {
-								printf("%2d.%8s  ", productCnt, arrProductName[(MAXROW - 1) - i][(MAXCOL - 1) - k]);
+								printf("%2d.%8s  ", productCnt, arrProductName[i][k]);
 							}
-							if (k % MAXCOL == 0) { break; }
+							if (k > 0 && k % MAXCOL == 0) { break; }
 						}
 						printf("\n");
-						for (int k = MAXCOL - 1; k >= 0; k--) {
-							if (arrProductPrice[(MAXROW - 1) - i][(MAXCOL - 1) - k] > inputMoney) {
-								arrProductPrice[(MAXROW - 1) - i][(MAXCOL - 1) - k] = 0;
-								printf("%9d원  ", arrProductPrice[(MAXROW - 1) - i][(MAXCOL - 1) - k]);
+						for (int k = 0; k < MAXCOL; k++) {
+							if (arrProductPrice[i][k] > inputMoney) {
+								arrProductPrice[i][k] = 0;
+								printf("%9d원  ", arrProductPrice[i][k]);
 							}
 							else {
-								printf("%9d원  ", arrProductPrice[(MAXROW - 1) - i][(MAXCOL - 1) - k]);
+								printf("%9d원  ", arrProductPrice[i][k]);
 							}
-							if (k % MAXCOL == 0) { break; }
+							if (k > 0 && k % MAXCOL == 0) { break; }
 						}
+						printf("\n");
 						printf("\n");
 					}
 					printf("======================================================================================================\n");
