@@ -262,7 +262,7 @@ int main(void) {
 					goto balanceReturnQ;		// 잔액 반환 질문 위치로 이동
 				}
 				else {		// 입력받은 상품 번호 위치에 상품명이 품절이 아니고 금액이 0원이 아니면 수행
-					printf("선택하신 상품은 %s 이고 ", arrProductName[productRow][productCol], sizeof(arrProductName[productRow][productCol]));		// 입력받은 상품 번호 위치의 상품명 출력
+					printf("선택하신 상품은 %s 이고 ", arrProductName[productRow][productCol]);		// 입력받은 상품 번호 위치의 상품명 출력
 					printf("가격은 %d원 입니다.\n\n", arrProductPrice[productRow][productCol]);		// 입력받은 상품 번호 위치의 상품 가격 출력
 					arrProductStock[productRow][productCol] -= 1;		// 입력받은 상품 번호 위치의 재고를 1 감소시킨 후 재고 수량 업데이트
 				}
@@ -273,20 +273,41 @@ int main(void) {
 				printf("잔액을 반환하시겠습니까? (y/n) : ");		// 잔액 반환 안내 메시지 출력
 				scanf_s("%c", &balanceReturn, sizeof(balanceReturn));		// 잔액 반환 의사 여부를 balanceReturn에 입력받음
 				if (balanceReturn == 'Y' || balanceReturn == 'y') {		// 잔액 반환을 선택할 경우 수행
-					if (balance / 1000 < arrCashStock[0]) {		// 잔액을 1000으로 나눈 몫이 1000원권 잔액 재고보다 작으면 수행
-						cash1000 = balance / 1000;		// 잔액을 1000으로 나눈 몫을 cash1000에 저장
-						arrCashStock[0] -= cash1000;		// 1000원권 재고 arrCashStock[0]에 cash1000값을 뺀 후 업데이트
-						balance %= 1000;		// 잔액을 1000으로 나눈 나머지를 잔액 관리 변수에 저장
+					if (arrCashStock[0] > 0) {		// 1000원권 잔액 재고가 0보다 크면 수행
+						if (balance / 1000 > arrCashStock[0]) {		// 잔액을 1000으로 나눈 몫이 1000원권 잔액 재고보다 크면 수행
+							cash1000 = arrCashStock[0];		// 1000원권 잔액 재고 수량을 cash1000 변수에 저장
+							balance -= (arrCashStock[0] * 1000);		// 1000원권 잔액 재고 수량의 가격만큼 잔액에서 감산한 후 잔액 업데이트
+							arrCashStock[0] = 0;		// 1000원권 재고 수량을 0개로 초기화
 						}
-					if (balance / 500 < arrCashStock[1]) {		// 잔액을 500으로 나눈 몫이 500원권 잔액 재고보다 작으면 수행
-						cash500 = balance / 500;		// 잔액을 500으로 나눈 몫을 cash500에 저장
-						arrCashStock[1] -= cash500;		// 500원권 재고 arrCashStock[1]에 cash500값을 뺀 후 업데이트
-						balance %= 500;		// 잔액을 500으로 나눈 나머지를 잔액 관리 변수에 저장
+						else {
+							cash1000 = balance / 1000;		// 잔액을 1000으로 나눈 몫을 cash1000에 저장
+							arrCashStock[0] -= cash1000;		// 1000원권 재고 arrCashStock[0]에 cash1000값을 뺀 후 업데이트
+							balance %= 1000;		// 잔액을 1000으로 나눈 나머지를 잔액 관리 변수에 저장
+						}
 					}
-					if (balance / 100 < arrCashStock[2]) {		// 잔액을 100으로 나눈 몫이 100원권 잔액 재고보다 작으면 수행
-						cash100 = balance / 100;		// 잔액을 100으로 나눈 몫을 cash100에 저장
-						arrCashStock[2] -= cash100;		// 100원권 재고 arrCashStock[2]에 cash100값을 뺀 후 업데이트
-						balance %= 100;		// 잔액을 100으로 나눈 나머지를 잔액 관리 변수에 저장
+					if (arrCashStock[1] > 0) {		// 500원권 잔액 재고가 0보다 크면 수행
+						if (balance / 500 > arrCashStock[1]) {		// 잔액을 500으로 나눈 몫이 500원권 잔액 재고보다 크면 수행
+							cash500 = arrCashStock[1];		// 500원권 잔액 재고 수량을 cash500 변수에 저장
+							balance -= (arrCashStock[1] * 500);		// 500원권 잔액 재고 수량의 가격만큼 잔액에서 감산한 후 잔액 업데이트
+							arrCashStock[1] = 0;		// 500원권 재고 수량을 0개로 초기화
+						}
+						else {
+							cash500 = balance / 500;		// 잔액을 500으로 나눈 몫을 cash500에 저장
+							arrCashStock[1] -= cash500;		// 500원권 재고 arrCashStock[1]에 cash500값을 감산한 후 업데이트
+							balance %= 500;		// 잔액을 500으로 나눈 나머지를 잔액 관리 변수에 저장
+						}
+					}
+					if (arrCashStock[2] > 0) {		// 100원권 잔액 재고가 0보다 크면 수행
+						if (balance / 100 > arrCashStock[2]) {		// 잔액을 100으로 나눈 몫이 100원권 잔액 재고보다 크면 수행
+							cash100 = arrCashStock[2];		// 100원권 잔액 재고 수량을 cash100 변수에 저장
+							balance -= (arrCashStock[2] * 100);		// 100원권 잔액 재고 수량의 가격만큼 잔액에서 감산한 후 잔액 업데이트
+							arrCashStock[2] = 0;		// 100원권 재고 수량을 0개로 초기화
+						}
+						else {
+							cash100 = balance / 100;		// 잔액을 100으로 나눈 몫을 cash100에 저장
+							arrCashStock[2] -= cash100;		// 100원권 재고 arrCashStock[2]에 cash100값을 뺀 후 업데이트
+							balance %= 100;		// 잔액을 100으로 나눈 나머지를 잔액 관리 변수에 저장
+						}
 					}
 					if (balance > 0) {		// 위 if 문을 다 확인 한 후에도 잔액이 0보다 크면 수행
 						printf("자판기내 잔액 잔고가 부족합니다. 고객센터로 문의주시기 바랍니다.\n\n");		// 자판기내 잔액 잔고 부족 안내 메시지 출력
