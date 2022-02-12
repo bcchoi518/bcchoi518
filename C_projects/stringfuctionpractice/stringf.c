@@ -8,8 +8,8 @@ int main(void) {
 
         char str1[20] = "abcd";
         char str2[20] = "abcda";
-        char str3[20] = "hello world";
-        char str4[20] = "copy world";
+        char str3[20] = "hello world!";
+        char str4[20] = "copy world!";
 
         printf("%d\n", strcmp(str1, str2));
 
