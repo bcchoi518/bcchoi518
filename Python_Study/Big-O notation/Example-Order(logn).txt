@@ -1,0 +1,9 @@
+Binary Search Tree Access, Search, Insertion, Deletion
+
+Denote n = 8
+log 8 = log 2^3 = 3
+
+Tip:
+nO(log n) = O(log n)
+ex) 2 * O(log n) = 10 * O(log n) = O(log n)
+    : Big-O notation에서 상수는 큰 영향을 끼치지 않으므로 무시한다.

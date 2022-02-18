@@ -1,0 +1,9 @@
+Quick Sort, Merge Sort, Head Sort
+
+Denote n = 4
+log 8 = 2 * log 2^2 = 4
+
+Tip:
+nO(nlog n) = O(nlog n)
+ex) 2 * O(nlog n) = 10 * O(nlog n) = O(nlog n)
+    : Big-O notation에서 상수는 큰 영향을 끼치지 않으므로 무시한다.

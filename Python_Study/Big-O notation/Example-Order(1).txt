@@ -1,0 +1,16 @@
+ex)
+public void printFirstItem(int [] arrayOfItems) {
+    System.out.printIn(arrayOfItems[0]);
+    System.out.printIn(arrayOfItems[1]);
+    ...
+}
+    : 하나의 인덱스에 접근을 한다
+
+Ttp:
+n*O(1) = O(1)
+ex) 2 * O(1) = 10 * O(1) = O(1)
+    : Big-O notation에서 상수는 큰 영향을 끼치지 않으므로 무시한다.
+
+Other examples:
+- Push, Pop on Stack
+- Access hash table
