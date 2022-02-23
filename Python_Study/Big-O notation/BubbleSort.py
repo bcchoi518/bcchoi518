@@ -1,4 +1,6 @@
 # performance : O(n^2), space complexity : O(1)
+# __author__ = 'Minsuk Heo'
+# https://github.com/minsuk-heo/problemsolving/blob/master/sort/BubbleSort.py
 
 import unittest
 

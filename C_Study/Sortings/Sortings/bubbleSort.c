@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include "baseHeader.h"
 
 void swap(int* a, int* b) {
 
@@ -24,18 +24,43 @@ int* bubbleSort(int* array, int size) {
 
 int main(void) {
 
-	int num1[6] = { 2, 6, 1, 3, 5, 4 };
-	int num2[6] = { 6, 3, 4, 1, 2, 5 };
-	int num3[6] = { 6, 5, 4, 3, 2, 1 };
+	int test[6] = { 0, };
+	int testSize = sizeof(test) / sizeof(int);
+	int num = 0;
+	int dup = 0;
 
-	int* test = num1;
-	int testSize = sizeof(num1) / sizeof(int);
+	srand((unsigned)time(NULL));
+
+	for (int i = 0; i < testSize;) {
+		num = rand() % 9 + 1;
+
+		for (int k = 0; k < testSize; k++) {
+			if (test[k] == num) {
+				dup = 1;
+				break;
+			}
+		}
+		if (!dup) {
+			test[i++] = num;
+		}
+		else {
+			dup = 0;
+		}
+	}
+
+	printf("========bubbleSort========\n");
+	printf("before : ");
+	for (int i = 0; i < testSize; i++) {
+		printf("%d ", test[i]);
+	}//end for
+	printf("\n");
 
 	bubbleSort(test, testSize);
 
-	for (int i = 0; i < 6; i++) {
+	printf(" after : ");
+	for (int i = 0; i < testSize; i++) {
 		printf("%d ", test[i]);
 	}//end for
-
+	printf("\n");
 	return 0;
 }//end main
