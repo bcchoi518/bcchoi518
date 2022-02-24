@@ -1,15 +1,5 @@
 #include "baseHeader.h"
 
-void swap(int* a, int* b) {
-
-	int temp = 0;
-
-	temp = *a;
-	*a = *b;
-	*b = temp;
-
-}//end swap
-
 int temp_arr[9];
 
 void merge(int* arr, int start, int middle, int end) {
@@ -58,7 +48,7 @@ void mergeSort(int* arr, int start, int end) {
 
 int main(void) {
 
-	int test[8] = { 0, };
+	int test[9] = { 0, };
 	int testSize = sizeof(test) / sizeof(int);
 	int num = 0;
 	int dup = 0;
@@ -72,15 +62,15 @@ int main(void) {
 			if (test[k] == num) {
 				dup = 1;
 				break;
-			}
-		}
+			}//end if
+		}//end for
 		if (!dup) {
 			test[i++] = num;
 		}
 		else {
 			dup = 0;
-		}
-	}
+		}//end if
+	}//end for
 
 	printf("========mergeSort========\n");
 	printf("before : ");

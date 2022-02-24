@@ -26,7 +26,7 @@ int* insertionSort(int* array, int size) {
 
 int main(void) {
 
-	int test[6] = { 0, };
+	int test[9] = { 0, };
 	int testSize = sizeof(test) / sizeof(int);
 	int num = 0;
 	int dup = 0;
@@ -40,15 +40,15 @@ int main(void) {
 			if (test[k] == num) {
 				dup = 1;
 				break;
-			}
-		}
+			}//end if
+		}//end for
 		if (!dup) {
 			test[i++] = num;
 		}
 		else {
 			dup = 0;
-		}
-	}
+		}//end if
+	}//end for
 
 	printf("========insertionSort========\n");
 	printf("before : ");
