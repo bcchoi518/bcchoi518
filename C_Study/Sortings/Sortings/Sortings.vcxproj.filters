@@ -30,6 +30,12 @@
     <ClCompile Include="quickSort.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="heapSort.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="binarySearchTree.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="baseHeader.h">
