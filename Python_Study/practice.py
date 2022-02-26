@@ -10,7 +10,7 @@ print(5+3)
 print(2*3)
 print(3*(3+1))
 print(8/4)
-print(8%2)
+print(8 % 2)
 print("---------------------------------------------------")
 
 print("문자열 출력")
@@ -65,9 +65,9 @@ print(1 + 1)
 print(3 - 2)
 print(5 * 2)
 print(6 / 3)
-print(2 ** 3) # 2^3
+print(2 ** 3)  # 2^3
 print(5 % 3)  # 나머지 구하기
-print(5 // 3) # 몫 구하기
+print(5 // 3)  # 몫 구하기
 print(10 // 3)
 
 print(10 > 3)   # True
@@ -223,9 +223,9 @@ print("탈출 문자")
 print("백문이 불여일견\n백견이 불여일타")
 
 # \', \" : 문장 내에서 ', "출력
-print("저는 '나도코딩'입니다.") # ' '로 강조
-print('저는 "나도코딩"입니다.') # " "로 강조
-print("저는 \"나도코딩\"입니다.") # " "로 강조
+print("저는 '나도코딩'입니다.")  # ' '로 강조
+print('저는 "나도코딩"입니다.')  # " "로 강조
+print("저는 \"나도코딩\"입니다.")  # " "로 강조
 
 # \\ : 문장 내에서 \
 print("D:\\projects\\Python_Study")
@@ -237,7 +237,7 @@ print("Red Apple\rPine")    # PineApple
 print("Redd\bApple")    # RedApple
 
 # \t : 탭
-print("Red\tApple") # Red   Apple
+print("Red\tApple")  # Red   Apple
 print("---------------------------------------------------")
 
 print("Quiz")
@@ -454,3 +454,4 @@ print("Quiz")
 # print("치킨 당첨자 : {0}".format(winners[0]))
 # print("커피 당첨자 : {0}".format(winners[1:]))
 # print(" -- 축하합니다 -- ")
+print("---------------------------------------------------")
