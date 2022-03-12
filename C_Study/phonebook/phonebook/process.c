@@ -24,7 +24,6 @@ void phone_book_list() {
 	}//end for
 	printf("\n");
 	fclose(rfp);
-
 }
 
 //전화번호 리스트 등록
