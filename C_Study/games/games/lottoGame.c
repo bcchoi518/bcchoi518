@@ -12,7 +12,7 @@ int main(void) {
 	char dup = 'N';
 
 	printf("** 로또 추첨을 시작합니다. **\n\n");
-	srand((unsigned)time(NULL));
+	srand((unsigned int)time(NULL));
 
 	for (i = 0; i < 6;) {
 		num = getNumber();

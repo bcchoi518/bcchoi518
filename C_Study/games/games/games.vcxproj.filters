@@ -15,7 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="random.c">
+    <ClCompile Include="lottoGame.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="upanddown.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="passwordGame.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="baldHeadGame.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="fishGame.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="catCollection.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
