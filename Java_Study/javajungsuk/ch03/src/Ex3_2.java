@@ -2,8 +2,8 @@ import java.util.Scanner;
 
 public class Ex3_2 {
     public static void main(String[] args) {
-        System.out.print("현재 월을 입력하세요. > ");
-        Scanner scanner = new Scanner(System.in);
+        System.out.print("현재 월을 입력하세요. > "); // 문자열 출력
+        Scanner scanner = new Scanner(System.in); // 사용자로부터 입력받기 위해 Scanner class의 Scanner 객체 생성
         int month = scanner.nextInt(); // 화면을 통해 입력받은 숫자를 month에 저장
 
         switch (month) {

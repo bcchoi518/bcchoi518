@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Ex7_4 {
   public static void main(String[] args) {
     Value v1 = new Value(10);
@@ -8,6 +10,9 @@ public class Ex7_4 {
     } else {
       System.out.println("v1과 v2는 다릅니다.");
     } // end if
+
+    System.out.println(v1.hashCode());
+    System.out.println(v2.hashCode());
   }// end main
 }// end Ex7_4
 
@@ -16,6 +21,10 @@ class Value {
 
   Value(int value) {
     this.value = value;
+  }
+
+  public int hashCode() {
+    return Objects.hash(value);
   }
 
   // Object의 equals()를 오버라이딩해서 주소가 아닌 value를 비교

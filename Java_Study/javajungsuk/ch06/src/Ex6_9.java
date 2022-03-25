@@ -1,5 +1,6 @@
 public class Ex6_9 {
   public static void main(String[] args) {
+    // Unit Class를 배열로 선언하여 객체를 배열로 생성가능
     Unit[] group = { new Marine(), new Tank(), new Dropship() };
 
     for (int i = 0; i < group.length; i++) {

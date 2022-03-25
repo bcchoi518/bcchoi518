@@ -1,6 +1,6 @@
 public class Ex5_3 {
     public static void main(String[] args) {
-        System.out.println("Card.width = " + Card.width);
+        System.out.println("Card.width = " + Card.width); // static 변수는 클래스명.변수명 으로 접근
         System.out.println("Card.height = " + Card.height);
 
         Card c1 = new Card();
@@ -24,8 +24,8 @@ public class Ex5_3 {
 }// end Ex5_3
 
 class Card {
-    String kind;
-    int number;
-    static int width = 100;
-    static int height = 250;
+    String kind; // iv
+    int number; // iv
+    static int width = 100; // cv
+    static int height = 250; // cv
 }// end Card

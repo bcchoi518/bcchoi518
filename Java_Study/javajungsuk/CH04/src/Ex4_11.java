@@ -21,5 +21,6 @@ public class Ex4_11 {
                 System.out.printf("틀렸습니다.%n%n");
             } // end if
         } // end for
+        scanner.close();
     }// end main
 }// end class

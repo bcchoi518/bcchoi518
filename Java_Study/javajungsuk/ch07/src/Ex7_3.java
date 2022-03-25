@@ -42,5 +42,8 @@ public class Ex7_3 {
 
     System.out.println(c1.hashCode());
     System.out.println(c2.hashCode());
+
+    System.out.println(c1.toString());
+    System.out.println(c2.toString());
   }// end main
 }// end Ex7_3

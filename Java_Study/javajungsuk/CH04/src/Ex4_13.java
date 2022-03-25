@@ -6,7 +6,7 @@ public class Ex4_13 {
         int[][] arr2D = { { 11, 12 }, { 21, 22 } };
 
         System.out.println(Arrays.toString(arr));
-        System.out.println(Arrays.deepToString(arr2D));
+        System.out.println(Arrays.deepToString(arr2D)); // 2차원 배열은 deepToString 으로 봐야함
 
         String[][] str2D = { { "aaa", "bbb" }, { "AAA", "BBB" } };
         String[][] str2D2 = { { "aaa", "bbb" }, { "AAA", "BBB" } };

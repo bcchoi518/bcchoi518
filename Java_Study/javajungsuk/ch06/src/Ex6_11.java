@@ -10,7 +10,7 @@ interface I {
 }// end I
 
 class B implements I { // interface I를 구현한 B class
-  public void method() {
+  public void method() { // interface I의 method를 오버라이딩
     System.out.println("B클래스의 메서드");
   }
 }// end B

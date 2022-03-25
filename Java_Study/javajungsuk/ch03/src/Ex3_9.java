@@ -4,7 +4,7 @@ public class Ex3_9 {
     public static void main(String[] args) {
 
         int menu = 0, num = 0;
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in); // 사용자로부터 입력받기위해 Scanner class의 객체를 생성
 
         outer: // while문에 outer라는 이름을 붙인다.
         while (true) {

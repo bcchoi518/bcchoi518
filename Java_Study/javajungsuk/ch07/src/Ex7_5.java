@@ -1,5 +1,11 @@
+import java.util.Objects;
+
 class Person {
   long id; // this.id
+
+  public int hashCode() {
+    return Objects.hash(id);
+  }
 
   public boolean equals(Object obj) {
     if (!(obj instanceof Person)) {
@@ -25,5 +31,8 @@ public class Ex7_5 {
     } else {
       System.out.println("p1과 p2는 다른 사람입니다.");
     } // end if
+
+    System.out.println(p1.hashCode());
+    System.out.println(p2.hashCode());
   }// end main
 }// end Ex7_5

@@ -5,9 +5,10 @@ public class Ex3_1 {
         int score = 0;
         char grade = 'D', opt = '0';
 
-        System.out.print("점수를 입력하세요 : ");
-        Scanner scanner = new Scanner(System.in);
-        score = scanner.nextInt();
+        System.out.print("점수를 입력하세요 : "); // 화면에 문자열을 출력
+        Scanner scanner = new Scanner(System.in); // Scanner class타입의 scanner 변수에 Scanner 객체를 System class의 inputStream
+                                                  // 매개변수를 넣어서 생성
+        score = scanner.nextInt(); // 정수형 변수 score에 정수형 데이터를 입력받음
 
         if (score >= 90) {
             grade = 'A';

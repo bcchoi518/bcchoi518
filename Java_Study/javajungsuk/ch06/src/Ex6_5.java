@@ -1,14 +1,14 @@
 class Time {
   private int hour; // 0~23 값을 가져야 함
-  private int minute;
-  private int second;
+  private int minute; // 0~59
+  private int second; // 0~59
 
   public void setHour(int hour) {
     if (isNotValidHour(hour)) {
       return;
     } // end if
 
-    this.hour = hour;
+    this.hour = hour; // private 변수에 메서드로 통해서 접근
   }// end setHour
 
   // 매개변수로 넘겨진 hour가 유효한지 확인해서 알려주는 메서드
