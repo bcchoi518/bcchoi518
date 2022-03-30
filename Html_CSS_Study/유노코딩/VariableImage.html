@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가변 이미지</title>
+  <style>
+    div {
+      width: 50%;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <picture>
+    <source srcset="./coding2.jpg" media="(min-width: 800px)">
+    <img src="./coding.jpg">
+  </picture>
+  <!--
+  <div>
+    <img src="./coding.jpg">
+  </div>
+  -->
+</body>
+
+</html>
+<!--
+  이미지 요소에도 상대단위 em, vw, % 등을 사용할 수 있음
+  브라우저에서 이미지는 기본적으로 비율을 유지하므로 설정시 주의
+  이미지가 원본보다 커지면 이미지 품질이 떨어질 수 있음
+  max-width 속성은 요소의 최대 너비 제한을 정할 수 있는 속성
+  picture와 source 요소는 이미지를 미디어 조건에 맞게 선택적으로 불러올 수 있는 요소
+-->

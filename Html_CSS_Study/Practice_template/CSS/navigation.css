@@ -1,0 +1,28 @@
+.nav {
+  position: fixed;
+  top: 10px;
+  left: 20%;
+  z-index: 20px;
+}
+.nav__wrapper {
+  display: flex;
+  width: 60vw;
+  height: 5vh;
+  padding: 0 10px 0 10px;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+.nav__wrapper li:hover {
+  background: linear-gradient(transparent, transparent, transparent, transparent, rgba(255, 179, 179, 0.5));
+}
+.nav__menu {
+  border: none;
+  background-color: transparent;
+  width: 60px;
+  font-size: 1.2rem;
+  color: whitesmoke;
+}
+.nav__menu:hover {
+  font-size: 1.3rem;
+}

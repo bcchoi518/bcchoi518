@@ -15,7 +15,7 @@ public class Q9_6 {
     Scanner s = new Scanner(System.in);
 
     while (true) {
-      System.out.print(">>");
+      System.out.print("(종료:Q) >>");
       String input = s.nextLine().trim(); // trim()으로 입력내용에서 공백을 제거
 
       if (input.equals("")) {

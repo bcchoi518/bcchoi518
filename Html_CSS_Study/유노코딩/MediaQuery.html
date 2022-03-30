@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Media Query</title>
+  <style>
+    img {
+      width: 200px;
+      height: 200px;
+    }
+
+    @media screen and (min-width:800px) {
+      img {
+        width: 400px;
+        height: 400px;
+      }
+    }
+
+    @media screen and (min-width:1200px) {
+      img {
+        width: 800px;
+        height: 800px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <img src="./coding.jpg">
+</body>
+
+</html>
+<!--
+  min-width : 디스플레이 영역의 최소 너비
+  max-width : 디스플레이 영역의 최대 너비
+  min-height : 디스플레이 영역의 최소 높이
+  max-height : 디스플레이 영역의 최대 높이
+  orientation : portrait 또는 landscape 감지
+  color : 기기의 색상당 비트 수
+  color-index : 출력 기기의 색상 테이블 수
+  aspect-ratio : 디스플레이 영역의 너비와 높이의 비율
+
+  link 태그에 미디어 쿼리 추가
+  <link rel="stylesheet" href="style.css" media="screen and (max-width: 000px)">
+  @import 구문을 이용한 추가
+  @import url("style.css") screen and (max-width: 000px);
+
+  미디어 쿼리는 미디어 타입을 인식하고, 콘텐츠를 읽어들이는 기기나 브라우저의 물리적 속성을 감지할 수 있는 유용한 장치
+  미디어 타입과 조건문(쿼리)으로 구성됨
+  다양한 미디어 타입과 조건을 지정할 수 있음
+  화면(screen)의 너비(width)를 조건으로 사용하는 경우가 가장 많음
+-->

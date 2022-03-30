@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가변 동영상</title>
+  <style>
+    /* video {
+      width: 100%;
+    } */
+    .player {
+      padding-top: 56.25%;
+      position: relative;
+    }
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="player">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/REVJbJmd874" title="YouTube video player"
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+    <!-- 
+    <video src="./YOMUKBANG.mp4" controls></video> 
+    자신이 가지고 있는 동영상은 크기 조절이 잘 됨
+  -->
+  </div>
+</body>
+
+</html>
+<!--
+  iframe은 고정된 픽셀값이 주어져도 그 컨테이너 안에서 콘텐츠 크기를 유동적으로 조절할 수 있기 때문에
+  단순히 width & height만 가지고 조절하면 그리 아름답지 못한 결과를 볼 수 있음
+  동영상 서비스의 소스를 사용할 경우 height가 width와 비율을 정확하게 맞추지 않는 경우가 있음
+  따라서 정확한 비율을 유지하는 여백을 만들어 그 안에서만 동영상이 보여지게 만드는 기법을 사용
+  (티에리 코블렌츠 라는 웹개발자가 처음 제안한 방법)
+-->

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>em과 rem</title>
+  <style>
+    .outer {
+      font-size: 32px;
+      /* font-size의 기본값은 16px이다*/
+    }
+
+    .inner {
+      font-size: 1em;
+      /*em : 부모의 font-szie를 따라간다.*/
+      /*rem : html의 font-size를 따라간다.*/
+      display: inline-block;
+      width: 200px;
+      height: 200px;
+      background-color: tomato;
+      padding: 1em;
+      margin: 1em;
+      /*margin, padding에서 em은 자기자신의 font-size를 따라간다.*/
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outer">
+    <div class="inner">고양이</div>
+  </div>
+</body>
+
+</html>
+<!-- 
+  절대 길이인 px은 어떤 상황에서도 동일한 값을 유지하므로 가변성이 없다. 
+  em과 rem은 박스에서 텍스트 크기를 조정할 때 사용하는 상대 단위이다.
+  em은 부모 요소의 글꼴 크기를, rem은 루트 요소의 글꼴 크기를 의미한다.
+  em으로 여백 크기(padding과 margin)를 정할 때는 자기 자신의 글자 크기를 기준으로 한다.
+  화면 크기에 따라 달라지는 것은 아니기 때문에 단순히 em, rem으로는 반응형으로 만들 수 없다.
+-->

@@ -1,0 +1,87 @@
+.header {
+  position: fixed;
+  /*헤더가 위에 착 붙어서 안움직이게 함 (스크롤이 길어졌을때 헤더가 안보이는걸 방지*/
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 3px black;
+  /*3px 정도 블러를 줘서 검게 처리*/
+  z-index: 20;
+  /*다른요소랑 겹쳤을때 상대적으로 위에 보이게 처리*/
+}
+.header__wrapper {
+  display: flex; /*요소가 일차원적인 정렬*/
+  align-items: center; /*교차축인 세로축의 정렬 방법*/
+  justify-content: space-between; /*flex box의 주축(가로축의 정렬방법)의 양옆으로 펼친다*/
+  height: 60px;
+  padding: 0 16px; /*위 아래로는 패딩이 없고 양옆으로 16px*/
+}
+.header__start {
+  height: 40px;
+  line-height: 40px;
+}
+.header__hamburger {
+  border: none;
+  background-color: transparent; /*배경을 투명하게*/
+  font-size: 1.1rem;
+}
+.header__title {
+  font-size: 1.2rem;
+  margin-left: 6px;
+}
+.header__center {
+  width: 50%;
+}
+.header__form {
+  display: flex;
+  max-width: 100%;
+}
+.header__input--text {
+  width: calc(100% - 60px);
+  height: 40px;
+  padding: 0 6px;
+  border: 1px solid #8f8f8f;
+  border-right: none;
+  border-radius: 2px 0 0 2px;
+}
+.header__input--button {
+  width: 60px;
+  height: 40px;
+  border: 1px solid #8f8f8f;
+  border-left: none;
+  border-radius: 0 2px 2px 0;
+}
+.header__end {
+  display: flex;
+}
+.header__search {
+  display: none;
+  margin-right: 5px;
+  border: none;
+  background-color: transparent;
+  font-size: 1.5rem;
+}
+.header__profile {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #eaeaea;
+  border-radius: 50%;
+  background-color: tomato;
+}
+@media screen and (max-width: 900px) {
+  .header__title {
+    display: none;
+  }
+}
+@media screen and (max-width: 520px) {
+  .header__center {
+    display: none;
+  }
+  .header__profile {
+    display: none;
+  }
+  .header__search {
+    display: block;
+  }
+}
