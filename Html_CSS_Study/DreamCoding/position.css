@@ -1,0 +1,25 @@
+div {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+  background: red;
+}
+
+.container {
+  background: yellow;
+  left: 20px;
+  top: 20px;
+  position: relative;
+}
+
+.box {
+  background: blue;
+  left: 20px;
+  top: 20px;
+  position: sticky;
+  /*position은 기본값으로 static을 가지고있음*/
+  /*relative : 원래 있던 자리에서 상대좌표로 이동*/
+  /*absolute : 상자가 담겨있는 부모 상자를 기준으로 이동 */
+  /*fixed : 상자에서 벗어나서 page를 기준으로 이동 */
+  /*sticky : 원래 있던 자리에 있으면서 스크롤링해도 그자리에 있음 */
+}

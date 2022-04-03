@@ -1,0 +1,21 @@
+div,
+span {
+  width: 80px;
+  height: 80px;
+  margin: 20px;
+  background: pink;
+}
+div {
+  background: red;
+  display: inline-block;
+}
+
+span {
+  background: blue;
+  display: block;
+}
+/*
+inline : 물건
+inline-block : 한줄에 여러개가 진열될 수 있는 상자
+block : 한줄에 하나씩 들어가는 상자
+*/

@@ -1,0 +1,75 @@
+.container {
+  background: beige;
+  height: 100vh;
+  /* height: 100%; => 컨테이너가 들어있는 부모의 높이에 100%를 채우겠다 */
+  display: flex;
+  flex-direction: row;
+  /* 기본값 row : 왼쪽에서 오른쪽으로 */
+  /* row-reverse : 오른쪽에서 왼쪽으로 */
+  /* column : 위에서 아래로 */
+  /* column-reverse : 아래에서 위로 */
+  flex-wrap: nowrap;
+  /* 기본값 nowrap : item들이 한줄에 꽉차도 그대로있음 */
+  /* wrap : item들이 한줄에 꽉차면 자동으로 다음줄로 넘어감 */
+  /* wrap-reverse : wrap의 반대로 됨 */
+  /* flex-flow: column nowrap; 으로 합쳐서 표현 가능함 */
+  justify-content: flex-start; /* main axis */
+  /* 기본값 flex-start : 처음부터 왼쪽에서 오른쪽으로 (중심축 방향) */
+  /* flex-end : item의 순서는 유지하면서 start의 반대 위치에 배치 */
+  /* center : item을 가운데 정렬 */
+  /* space-around : box를 둘러싸게 space를 넣어줌 */
+  /* space-evenly : box를 둘러싸게 space를 넣어줌 (box 간격을 똑같게) */
+  /* space-between : box를 둘러싸게 space를 넣어줌 (item을 왼쪽과 오른쪽은 화면에 맞게하고 가운데에만 넣어줌) */
+  align-items: baseline; /* cross axis */
+  /* center : cross axis의 가운데 정렬 */
+  /* baseline : text가 모두 균등하게 보이게 해줌 */
+  align-content: center;
+  /* justify-content에서 사용되는 속성을 다 사용할 수 있음 */
+}
+.item {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+}
+.item1 {
+  background: #ef9a9a;
+  order: 0;
+  /* 기본값은 0이며 숫자로 위치를 지정하여 순서를 바꿀 수 있음 */
+  flex-grow: 1;
+  /* 기본값은 0이며 값만큼의 비율? 로 빈 공간을 채우면서 늘어남 */
+  flex-shrink: 1;
+  /* 기본값은 0이며 값만큼의 비율? 로 줄어듬 */
+  flex-basis: auto;
+  /* 기본값은 auto이며 값(%)만큼의 비율? 로 공간을 차지함 */
+  /* flex: 2 2 auto; => grow shrink basis 를 한줄로 표현 가능 */
+  align-self: center;
+  /* 아이템별로 배치를 변경할 수 있음 */
+}
+.item2 {
+  background: #f48fb1;
+}
+.item3 {
+  background: #ce93d8;
+}
+.item4 {
+  background: #b39ddb;
+}
+.item5 {
+  background: #90caf9;
+}
+.item6 {
+  background: #a5d6a7;
+}
+.item7 {
+  background: #e6ee9c;
+}
+.item8 {
+  background: #fff59d;
+}
+.item9 {
+  background: #ffcc80;
+}
+.item10 {
+  background: #ffab91;
+}
+/*material.io : color tool 사이트*/
