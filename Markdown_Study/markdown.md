@@ -68,5 +68,5 @@ Click [here](https://github.com/bcchoi518/bcchoi518)
 To print message in the console, use `console.log('your message')` and ..
 
 ```ts
-console.log("your message");
+console.log('your message');
 ```
