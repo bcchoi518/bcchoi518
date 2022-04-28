@@ -29,7 +29,7 @@ console.log('Hello World world');
 //   return x + y;
 // }
 
-// console.log(add(3, 4));
+console.log(add(3, 4));
 
 // 자바스크립트에서는 함수도 객체다.
 // function add(x, y) {
