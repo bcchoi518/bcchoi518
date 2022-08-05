@@ -51,17 +51,34 @@
 		return;
 	}//end if
 	
+// 	int productPrice = 0;
+// 	try {
+// 		productPrice = Integer.parseInt(productPrice_);
+// 	} catch (Exception e) {
+// 		out.println("<script>");
+// 		out.println("alert('숫자만 입력가능 합니다.');");
+// 		out.println("location.href='chuga.jsp';");
+// 		out.println("</script>");
+// 		return;
+// 	}//end try-catch
+	
+	String imsi = productPrice_;
+	for (int i = 0; i < 10; i++) {
+		imsi = imsi.replace(i + "", "");
+	}//end for
+		
 	int productPrice = 0;
-	try {
-		productPrice = Integer.parseInt(productPrice_);
-	} catch (Exception e) {
+	if (imsi.length() > 0) {
 		out.println("<script>");
 		out.println("alert('숫자만 입력가능 합니다.');");
 		out.println("location.href='chuga.jsp';");
 		out.println("</script>");
 		return;
-	}//end try-catch
-	
+	} else {
+		productPrice = Integer.parseInt(productPrice_);
+	}//end if
+		
+		
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	

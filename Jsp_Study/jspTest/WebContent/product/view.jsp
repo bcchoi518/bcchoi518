@@ -8,18 +8,20 @@
 <%@ page import="java.sql.PreparedStatement" %> 
 
 <%@ include file = "../include/inc_dbInfo.jsp" %>
+<%@ include file = "_inc_top.jsp" %>
 
 <%
 	request.setCharacterEncoding("UTF-8");	
 
-	String arg1 = request.getParameter("arg1");
-	if (arg1 == null || arg1.trim().equals("")) {
+	String arg1_ = request.getParameter("arg1");
+	if (arg1_ == null || arg1_.trim().equals("")) {
 		out.println("<script>");
 		out.println("alert('정상적인 접속이 아닙니다.');");
 		out.println("location.href='list.jsp';");
 		out.println("</script>");
 		return;
 	}//end if
+	int arg1 = Integer.parseInt(arg1_);
 	
 	int productCode = 0;
 	String productName = "";
@@ -41,7 +43,7 @@
 		//-------------------------------------------------------
 		String sql = "SELECT * FROM product WHERE productCode = ?";
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, arg1);
+		pstmt.setInt(1, arg1);
 		rs = pstmt.executeQuery();
 		if (rs.next()) {
 			productCode = rs.getInt("productCode");
@@ -62,6 +64,7 @@
 		if (conn != null) { conn.close(); }
 		System.out.println("오라클 접속 해제..");
 	}//end try-catch-finally
+	productContent = productContent.replace("\n", "<br>");
 %>
 <!DOCTYPE html>
 <html>
@@ -96,7 +99,7 @@
 						<td><%=productPrice %></td>
 					</tr>
 					<tr>
-						<th>상품설명</th>
+						<th>상품내용</th>
 						<td><%=productContent %></td>
 					</tr>
 					<tr>

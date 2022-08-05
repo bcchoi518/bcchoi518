@@ -8,18 +8,20 @@
 <%@ page import="java.sql.PreparedStatement" %> 
 
 <%@ include file = "../include/inc_dbInfo.jsp" %>
+<%@ include file = "_inc_top.jsp" %>
 
 <%
 	request.setCharacterEncoding("UTF-8");
 
-	String arg1 = request.getParameter("arg1");
-	if (arg1 == null || arg1.trim().equals("")) {
+	String arg1_ = request.getParameter("arg1");
+	if (arg1_ == null || arg1_.trim().equals("")) {
 		out.println("<script>");
 		out.println("alert('정상적인 접속이 아닙니다.');");
 		out.println("location.href='list.jsp';");
 		out.println("</script>");
 		return;
 	}//end if
+	int arg1 = Integer.parseInt(arg1_);
 	
 	String productCode = "";
 	String productName = "";
@@ -41,7 +43,7 @@
 		//-------------------------------------------------------
 		String sql = "SELECT * FROM product WHERE productCode = ?";
 		pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, arg1);
+		pstmt.setInt(1, arg1);
 		rs = pstmt.executeQuery();
 		if (rs.next()) {
 			productCode = rs.getString("productCode");
@@ -94,8 +96,8 @@
 							<td><input type="text" name="productPrice" value="<%=productPrice %>"/></td>
 						</tr>
 						<tr>
-							<th>상품설명</th>
-							<td><textarea name="productContent" rows="3" cols="14"><%=productContent %></textarea></td>
+							<th>상품내용</th>
+							<td><textarea name="productContent" style="width: 300px; height: 100px;"><%=productContent %></textarea></td>
 						</tr>
 						<tr>
 							<th>상품분류</th>

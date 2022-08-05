@@ -8,6 +8,7 @@
 <%@page import="java.sql.Date"%>
 
 <%@ include file = "../include/inc_dbInfo.jsp" %>
+<%@ include file = "_inc_top.jsp" %>
 
 <%
 	request.setCharacterEncoding("UTF-8");
@@ -61,6 +62,7 @@
 			if (conn != null) { conn.close(); }
 			System.out.println("오라클 접속 해제..");
 		}//end try-catch-finally
+	productContent = productContent.replace("\n", "<br>");
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -97,7 +99,7 @@
 							<td><%=productPrice %></td>
 						</tr>
 						<tr>
-							<th>상품설명</th>
+							<th>상품내용</th>
 							<td><%=productContent %></td>
 						</tr>
 						<tr>

@@ -11,7 +11,6 @@
 	request.setCharacterEncoding("UTF-8");
 
 	String arg1_ = request.getParameter("arg1");
-
 	if (arg1_ == null || arg1_.trim().equals("")) {
 		out.println("<script>");
 		out.println("alert('정상적인 접속이 아닙니다.');");
@@ -19,7 +18,8 @@
 		out.println("</script>");
 		return;
 	}//end if
-			
+	int arg1 = Integer.parseInt(arg1_);
+	
 	String productName = request.getParameter("productName");
 	String productPrice_ = request.getParameter("productPrice");
 	String productContent = request.getParameter("productContent");
@@ -62,7 +62,6 @@
 		return;
 	}//end if
 	
-	int arg1 = Integer.parseInt(arg1_);
 	int productPrice = 0;
 	try {
 		productPrice = Integer.parseInt(productPrice_);
