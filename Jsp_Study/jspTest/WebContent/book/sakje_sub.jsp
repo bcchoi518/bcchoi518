@@ -1,7 +1,8 @@
-<%@page import="book.model.dto.BookDTO"%>
-<%@page import="book.model.dao.BookDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@page import="book.model.dto.BookDTO"%>
+<%@page import="book.model.dao.BookDAO"%>
 
 <%
 	String no_ = request.getParameter("no");
