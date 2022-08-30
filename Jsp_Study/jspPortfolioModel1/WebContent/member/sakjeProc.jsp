@@ -36,7 +36,7 @@
 		
 		if (!attachInfo.equals("-")) {
 			//파일 삭제 처리..
-			String attachPath = "D:/Developement/attach";
+			String attachPath = "C:/cbc/attach";
 			String uploadPath = attachPath + request.getContextPath() + "/member";
 			
 			String[] imsiArray01 = attachInfo.split(",");

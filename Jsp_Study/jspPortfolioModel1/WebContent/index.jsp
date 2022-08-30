@@ -9,4 +9,4 @@
 		location.href='./main/main.jsp?menuGubun=dashBoard_list';
 	}//move
 	move();
-</script>
+</script>	
