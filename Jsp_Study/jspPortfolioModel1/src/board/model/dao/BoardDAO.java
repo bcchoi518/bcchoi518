@@ -12,7 +12,7 @@ public class BoardDAO {
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
-	
+
 	public ArrayList<BoardDTO> getSelectAll(String searchGubun, String searchData, int startRecord, int lastRecord) {
 		String searchValue = "O";
 		if (searchGubun == null || searchGubun.trim().equals("")) { searchGubun = ""; }
