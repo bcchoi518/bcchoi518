@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<%@page import="java.net.Inet4Address"%>
+<%@ page import="java.net.Inet4Address"%>
 
 <%	
 	request.setCharacterEncoding("UTF-8");
@@ -20,7 +20,7 @@
 	String menuGubun = request.getParameter("menuGubun");
 	
 	if (menuGubun == null || menuGubun.trim().equals("")) {
-		menuGubun = "member_list";
+		menuGubun = "dashBoard_list";
 	//		out.println("<script>");
 	//		out.println("location.href='error.jsp?errorCode=001';");
 	//		out.println("</script>");
@@ -31,4 +31,9 @@
 	String fileName = imsiArray[1];
 	
 	String includePage = "../" + folderName + "/" + fileName + ".jsp";
+	
+	String imgDisplayPath = "";
+	imgDisplayPath += request.getContextPath();
+	imgDisplayPath += "/attach";
+	imgDisplayPath += request.getContextPath();
 %>

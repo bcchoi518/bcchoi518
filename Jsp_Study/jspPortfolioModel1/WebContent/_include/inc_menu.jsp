@@ -43,11 +43,11 @@
 		<td align="center" style="padding: 10px" id="shopMall">
 			<a href="<%=path %>/main/main.jsp?menuGubun=shopMall_list">몰(Mall)</a>
 		</td>
-		<td align="center" style="padding: 10px" id="menu8">
-			메뉴8
+		<td align="center" style="padding: 10px" id="shopCart">
+			<a href="<%=path %>/main/main.jsp?menuGubun=shopCart_list">몰(Cart)</a>
 		</td>
-		<td align="center" style="padding: 10px" id="menu9">
-			메뉴9
+		<td align="center" style="padding: 10px" id="chart">
+			<a href="<%=path %>/main/main.jsp?menuGubun=chart_list">챠트</a>
 		</td>
 	</tr>
 </table>

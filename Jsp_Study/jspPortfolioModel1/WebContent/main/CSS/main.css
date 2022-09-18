@@ -1,0 +1,56 @@
+:root {
+  --text-color: #f0f4f5;
+  --nav-background-color: #616161;
+  --aside-background-color: #607d8b;
+  --article-background-color: #bdbdbd;
+  --footer-background-color: #616161;
+  --accent-color: #ffa500;
+  --aside-menu-underline-color: #005b88;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'Source Sans Pro';
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: stretch;
+}
+
+.navbar {
+  flex: 1;
+  width: 100%;
+  max-height: 10%;
+}
+
+.section {
+  flex: 9;
+  display: flex;
+  flex-flow: row nowrap;
+  position: relative;
+}
+
+.asidebar {
+  flex: 0.3;
+  min-height: 100%;
+}
+
+.article {
+  flex: 9;
+  min-height: 100%;
+}
+
+.footerbar {
+  flex: 0.3;
+  width: 100%;
+  max-height: 10%;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex: 0.2;
+  }
+  .footerbar {
+    flex: 0.2;
+  }
+}
