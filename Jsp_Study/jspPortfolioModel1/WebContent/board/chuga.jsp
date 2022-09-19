@@ -3,10 +3,23 @@
     
 <%@ include file = "_inc_top.jsp" %>
 
+<%
+	String pageTitle = "글쓰기";
+	String pageSubject = "";
+	String pageContent = "";
+	if (resultBoardDto.getNo() > 0) {
+		pageTitle = "답변쓰기";
+		pageSubject = resultBoardDto.getSubject();
+		pageContent = resultBoardDto.getContent();
+	}//if
+%>
 <h2><%=pageTitle %></h2>
 
 <form name="DirForm">
 	<input type="hidden" name="no" value="<%=resultBoardDto.getNo() %>" />
+	<input type="hidden" name="pageNumber" value="<%=pageNumber %>" />
+	<input type="hidden" name="searchGubun" value="<%=searchGubun %>" />
+	<input type="hidden" name="searchData" value="<%=searchData %>" />
 	<table border="1">
 		<tr>
 			<td class="entryName">작성자</td>
@@ -45,7 +58,7 @@
 		<tr>
 			<td colspan="2">
 				<button type="button" onClick="save()" >저장하기</button>
-				<button type="button" onClick="location.href='main.jsp?menuGubun=board_list';" >목록으로</button>
+				<button type="button" onClick="location.href='main.jsp?menuGubun=board_list&searchGubun=<%=searchGubun %>&searchData=<%=searchData %>';" >목록으로</button>
 			</td>
 		</tr>
 	</table>

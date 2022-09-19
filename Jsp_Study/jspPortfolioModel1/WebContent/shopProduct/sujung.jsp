@@ -50,9 +50,10 @@
 		<tr>
 			<td>상품이미지</td>	
 			<td>
-				<input type="file" name="attachInfo" /><br>
-				<input type="file" name="attachInfo" /><br>
-				<input type="file" name="attachInfo" />
+				<input type="file" name="attachFile1" /><br>
+				<input type="file" name="attachFile2" /><br>
+				<input type="file" name="attachFile3" /><br>
+				<input type="hidden" name="attachCounter" />
 			</td>	
 		</tr>
 		<tr>

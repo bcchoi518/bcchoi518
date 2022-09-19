@@ -6,7 +6,7 @@
 
 <%
 	String sessionChk = "O";
-	if (fileName.equals("list") && sessionNo <= 0) {
+	if ((fileName.equals("list") || fileName.equals("listSearch")) && sessionNo <= 0) {
 		sessionChk = "X";
 	}//if
 	

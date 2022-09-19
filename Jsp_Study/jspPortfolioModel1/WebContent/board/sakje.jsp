@@ -7,6 +7,9 @@
 
 <form name="DirForm">
 	<input type="hidden" name="no" value="<%=resultBoardDto.getNo() %>" />
+	<input type="hidden" name="pageNumber" value="<%=pageNumber %>" />
+	<input type="hidden" name="searchGubun" value="<%=searchGubun %>" />
+	<input type="hidden" name="searchData" value="<%=searchData %>" />
 	<table border="1">
 		<tr>
 			<td class="entryName">작성자</td>
@@ -51,7 +54,7 @@
 		<tr>
 			<td colspan="2">
 				<button type="button" onClick="save()" >삭제하기</button>
-				<button type="button" onClick="location.href='main.jsp?menuGubun=board_list';" >목록으로</button>
+				<button type="button" onClick="location.href='main.jsp?menuGubun=board_list&searchGubun=<%=searchGubun %>&searchData=<%=searchData %>';" >목록으로</button>
 			</td>
 		</tr>
 	</table>

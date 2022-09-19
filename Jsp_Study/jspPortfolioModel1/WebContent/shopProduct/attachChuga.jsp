@@ -38,9 +38,7 @@
 				<input type="file" name="attachFile1" class="fileUp"/><br>
 				<input type="file" name="attachFile2" class="fileUp"/><br>
 				<input type="file" name="attachFile3" class="fileUp"/><br>
-				<input type="file" name="attachFile4" class="fileUp"/><br>
-				<input type="file" name="attachFile5" class="fileUp"/><br>
-				<input type="text" name="attachCounter" />
+				<input type="hidden" name="attachCounter" />
 			</td>	
 		</tr>
 		<tr>
@@ -57,7 +55,7 @@
 		if (confirm('등록할까요?')) {
 			document.inputForm.attachCounter.value = document.getElementsByClassName('fileUp').length;
 			document.inputForm.enctype = 'multipart/form-data';
-			document.inputForm.action = 'mainProc.jsp?menuGubun=shopProduct_attachChugaProc2';
+			document.inputForm.action = 'mainProc.jsp?menuGubun=shopProduct_attachChugaProc3';
 			document.inputForm.method = 'post';
 			document.inputForm.submit();
 		}//if
