@@ -25,6 +25,13 @@
 			<th>등급</th>
 			<th>등록일</th>
 		</tr>
+		
+		<c:if test="${fn:length(requestScope.list) <= 0 }">
+			<tr>
+				<td colspan="6" style="height:200px; text-align:center;">등록된 회원이 없습니다.</td>
+			</tr>
+		</c:if>
+		
 		<c:forEach var="dto" items="${requestScope.list }">
 			<tr>
 				<td>${dto.no }</td>
@@ -48,6 +55,8 @@
 	<a href="#" onclick="move('list')">목록</a>
 	|
 	<a href="#" onclick="move('chuga')">등록</a>
+	|
+	<a href="#" onclick="move('chugaAttach')">등록(attach)</a>
 	|
 	</div>
 	
