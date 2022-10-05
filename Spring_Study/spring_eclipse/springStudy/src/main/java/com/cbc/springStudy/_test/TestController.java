@@ -231,7 +231,7 @@ public class TestController {
 	@RequestMapping("/test10")
 	public String test10(Model model)
 	{
-		String attachPath = "C:/Developement/attach";
+		String attachPath = "C:/cbc/attach";
 		String uploadPath = attachPath + "/imsi";
 		
 		ArrayList<String> list = new ArrayList<>();
