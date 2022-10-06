@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="guestBook">
+	
+	<sql id="search">
+		<choose>
+			<when test="searchGubun == 'name_content'">
+				AND (name LIKE '%' || #{searchData} || '%' OR content LIKE '%' || #{searchData} || '%')
+			</when>
+			<when test="searchGubun != null and searchGubun != '' and searchData != null and searchData != ''">
+				AND ${searchGubun} LIKE '%' || #{searchData} || '%'
+			</when>
+			<otherwise>
+			
+			</otherwise>
+		</choose>
+	</sql>
+	
+	<select id="getTotalRecord" resultType="int">
+		SELECT COUNT(*) totalRecord
+		  FROM guestBook
+		 WHERE 1=1
+		<include refid="search"></include>
+	</select>
+	
+	<select id="getSelectAll" resultType="com.cbc.springPortfolio.guestBook.model.dto.GuestBookDTO">
+		SELECT *
+		  FROM (SELECT rownum rnum, basic.*
+		  		  FROM (SELECT *
+		  		  		  FROM guestBook
+		 		 		 WHERE 1=1
+						<include refid="search"></include>
+	  		  		  ORDER BY no DESC) basic
+	  		   )
+	  	 WHERE rnum BETWEEN #{startRecord} AND #{lastRecord}
+	</select>
+	
+	<select id="getSelectOne" resultType="com.cbc.springPortfolio.guestBook.model.dto.GuestBookDTO">
+		SELECT *
+		  FROM guestBook
+	  	 WHERE no = #{no}
+	</select>
+	
+	<insert id="setInsert">
+		INSERT INTO guestBook
+			 VALUES (seq_guestBook.NEXTVAL, #{name}, #{email}, #{passwd}, #{content}, SYSDATE, #{memberNo})
+	</insert>
+	
+	<update id="setUpdate">
+		UPDATE guestBook
+		   SET name = #{name}, email = #{email}, content = #{content}
+		 WHERE no = #{no} AND passwd = #{passwd}
+	</update>
+	
+	<delete id="setDelete">
+		DELETE FROM guestBook
+		 	  WHERE no = #{no} AND passwd = #{passwd}
+	</delete>
+	
+</mapper>
