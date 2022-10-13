@@ -1,16 +1,27 @@
-server:
-  port: 8092
-
 todos:
   data:
     initialize: true
-
+  feature:
+    toggles:
+      auth: true
+      onlineUsersCounter: false
+      
 site:
   author: SpringRunner
   description: What're your plans today?
 
+server:
+  servlet:
+    encoding:
+      charset: utf-8
+      force: true
+  port: 8092
+  error:
+    include-message: always
+    include-binding-errors: always
+
 logging:
   level:
     todoapp: debug
-    org.springframework.beans: debug
-    org.springframework.web: trace
+    '[org.springframework.beans]': debug
+    '[org.springframework.web]': trace
