@@ -20,9 +20,9 @@ import com.cbc.springPortfolio.guestBook.service.GuestBookService;
 public class GuestBookController {
 	
 	@Inject
-	private GuestBookService guestBookService;
+	GuestBookService guestBookService;
 	@Inject
-	private Util util;
+	Util util;
 	
 	String folderName = "guestBook";
 	

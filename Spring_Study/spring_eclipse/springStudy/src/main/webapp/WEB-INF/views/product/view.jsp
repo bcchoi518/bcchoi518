@@ -47,7 +47,7 @@
 					<c:otherwise>
 						<c:set var="fileName" value="${fn:split(requestScope.dto.attachInfo, ',')[1] }" />
 						<c:set var="fileOriginName" value="${fn:split(requestScope.dto.attachInfo, ',')[0] }" />
-						<img alt="${fileOriginName }" title="${fileOriginName }" src="${path }/attach${path }/product/${fileName }" />
+						<img alt="${fileOriginName }" title="${fileOriginName }" src="${path }/attach${path }/product/${fileName }" style="width:80px; height:80px;" />
 					</c:otherwise>
 				</c:choose>
 			</td>

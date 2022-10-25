@@ -28,7 +28,7 @@
 		
 		<c:if test="${fn:length(requestScope.list) <= 0 }">
 			<tr>
-				<td colspan="6" style="height:200px; text-align:center;">등록된 상품이 없습니다.</td>
+				<td colspan="7" style="height:200px; text-align:center;">등록된 상품이 없습니다.</td>
 			</tr>
 		</c:if>
 		
@@ -43,7 +43,7 @@
 						<c:otherwise>
 							<c:set var="fileName" value="${fn:split(dto.attachInfo, ',')[1] }" />
 							<c:set var="fileOriginName" value="${fn:split(dto.attachInfo, ',')[0] }" />
-							<img alt="${fileOriginName }" title="${fileOriginName }" src="${path }/attach${path }/product/${fileName }" />
+							<img alt="${fileOriginName }" title="${fileOriginName }" src="${path }/attach${path }/product/${fileName }" style="width:80px; height:80px;"/>
 						</c:otherwise>
 					</c:choose>
 				</td>
