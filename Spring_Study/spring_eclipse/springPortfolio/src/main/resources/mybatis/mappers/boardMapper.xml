@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="board">
+
+	<sql id="search">
+		<choose>
+			<when test="searchGubun == 'id_name'">
+				AND (id LIKE '%' || #{searchData} || '%' OR name LIKE '%' || #{searchData} || '%')
+			</when>
+			<when test="searchGubun != null and searchGubun != '' and searchData != null and searchData != ''">
+				AND ${searchGubun} LIKE '%' || #{searchData} || '%'
+			</when>
+			<otherwise>
+				
+			</otherwise>
+		</choose>
+	</sql>
+
+	<select id="getSelectAll" resultType="com.cbc.springPortfolio.board.model.dto.BoardDTO">
+		SELECT *
+		  FROM (SELECT rownum rnum, basic.*
+			  	  FROM (SELECT * 
+						  FROM board 
+						 WHERE 1 = 1
+				 		<include refid="search"></include>
+				  	  ORDER BY no DESC
+				  	   ) basic
+			   )
+		 WHERE rnum BETWEEN #{startRecord} AND #{lastRecord}
+	</select>
+	
+	<select id="getSelectOne" resultType="com.cbc.springPortfolio.board.model.dto.BoardDTO">
+		SELECT *
+		  FROM (SELECT b.*,
+			   		   LAG(no) OVER (ORDER BY no DESC) preNo,
+			   		   LAG(subject) OVER (ORDER BY no DESC) preSubject,
+			   		   LEAD(no) OVER (ORDER BY no DESC) nxtNo,
+			   		   LEAD(subject) OVER (ORDER BY no DESC) nxtSubject
+		  		  FROM board b
+		 		 WHERE 1=1
+	  	 		 <include refid="search"></include>
+	  		  ORDER BY no DESC
+	  		   )
+	  	 WHERE no = #{no}
+	</select>
+	
+	<select id="getTotalRecord" resultType="int">
+		SELECT COUNT(*)
+		  FROM board
+		 WHERE 1 = 1
+		 <include refid="search"></include>
+	</select>
+	
+	<select id="getMaxValue" resultType="int">
+		SELECT MAX(${fieldName})
+		  FROM board
+	</select>
+	
+	<insert id="setInsert"> <!-- parameterType="" 생략가능 -->
+		INSERT INTO board
+			 VALUES (seq_board.NEXTVAL, #{num}, #{tbl}, #{writer}, #{subject}, #{content}, #{email}, #{passwd}, #{refNo}, #{stepNo}, #{levelNo}, #{parentNo}, #{hit}, #{ip}, #{memberNo}, #{noticeNo}, #{secretGubun}, SYSDATE, SYSDATE, #{attachInfo})
+	</insert>
+	
+	<update id="setUpdate">
+		UPDATE board
+		   SET writer = #{writer}, email = #{email}, noticeNo = #{noticeNo}, secretGubun = #{secretGubun}, subject = #{subject}, content = #{content}, modiDate = SYSDATE
+		 WHERE no = #{no} AND passwd = #{passwd}
+	</update>
+	
+	<update id="setUpdateHit">
+		UPDATE board
+		   SET hit = hit + 1
+		 WHERE no = #{no}
+	</update>
+	
+	<update id="setUpdateReLevel">
+		UPDATE board
+		   SET levelNo = levelNo + 1
+		 WHERE refNo = #{refNo} AND levelNo > #{levelNo}
+	</update>
+	
+	<delete id="setDelete">
+		DELETE FROM board
+		 	  WHERE no = #{no} AND passwd = #{passwd}
+	</delete>
+	
+</mapper>

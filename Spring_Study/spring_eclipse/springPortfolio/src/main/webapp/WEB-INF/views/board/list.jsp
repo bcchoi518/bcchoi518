@@ -7,14 +7,15 @@
 
 <div style="border: 0px solid red; width: 80%; margin-top:10px;" align="left">
 	<c:choose>
-		<c:when test="${requestScope.searchGubun != '' }">
+		<c:when test="${fn:length(requestScope.searchGubun) > 0 }">
 			* 검색어 "<span style="color:red; font-weight:bold;">${requestScope.searchData }</span>"으/로 검색된 목록 : ${requestScope.totalRecord }건
 		</c:when>
 		<c:otherwise>
 			* 전체목록: ${requestScope.totalRecord }건
 		</c:otherwise>
 	</c:choose>
-	(${requestScope.pageNumber }/${requestScope.pagerMap.totalPage })
+	<c:set var="totalPage" value="${requestScope.pagerMap.totalPage == 0 ? 1 : requestScope.pagerMap.totalPage }" />
+	(${requestScope.pageNumber }/${totalPage })
 </div>
 
 <table border="1" width="80%" align="center">

@@ -14,10 +14,7 @@
 			* 전체목록: ${requestScope.totalRecord }건
 		</c:otherwise>
 	</c:choose>
-	<c:set var="totalPage" value="${requestScope.pagerMap.totalPage }" />
-	<c:if test="${totalPage <= 0 }">
-		<c:set var="totalPage" value="1" />
-	</c:if>
+	<c:set var="totalPage" value="${requestScope.pagerMap.totalPage == 0 ? 1 : requestScope.pagerMap.totalPage }" />
 	(${requestScope.pageNumber }/${totalPage })
 </div>
 <table border="1" width="80%" align="center">

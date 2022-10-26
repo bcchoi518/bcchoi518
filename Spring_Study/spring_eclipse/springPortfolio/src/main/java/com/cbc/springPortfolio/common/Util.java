@@ -28,23 +28,24 @@ public class Util {
 		String ip6 = request.getHeader("X-Forwarded-For");  
         if (ip6 == null || ip6.length() == 0 || "unknown".equalsIgnoreCase(ip6)) {  
         	ip6 = request.getHeader("Proxy-Client-IP");  
-        }  
+        }//if
         if (ip6 == null || ip6.length() == 0 || "unknown".equalsIgnoreCase(ip6)) {  
         	ip6 = request.getHeader("WL-Proxy-Client-IP");  
-        }  
+        }//if
         if (ip6 == null || ip6.length() == 0 || "unknown".equalsIgnoreCase(ip6)) {  
         	ip6 = request.getHeader("HTTP_CLIENT_IP");  
-        }  
+        }//if
         if (ip6 == null || ip6.length() == 0 || "unknown".equalsIgnoreCase(ip6)) {  
         	ip6 = request.getHeader("HTTP_X_FORWARDED_FOR");  
-        }  
+        }//if
         if (ip6 == null || ip6.length() == 0 || "unknown".equalsIgnoreCase(ip6)) {  
         	ip6 = request.getRemoteAddr();  
-        }
+        }//if
 		
-		String[] imsiUriArray = uri.split("/");
-		String folderName = imsiUriArray[imsiUriArray.length - 2];
-		String fileName = imsiUriArray[imsiUriArray.length - 1];
+        // JSP Model2에서 사용되는 부분
+//		String[] imsiUriArray = uri.split("/");
+//		String folderName = imsiUriArray[imsiUriArray.length - 2];
+//		String fileName = imsiUriArray[imsiUriArray.length - 1];
 		
 		String[] array = new String[8];
 		array[0] = referer;
@@ -53,8 +54,8 @@ public class Util {
 		array[3] = uri;
 		array[4] = ip;
 		array[5] = ip6;
-		array[6] = folderName;
-		array[7] = fileName;
+//		array[6] = folderName;
+//		array[7] = fileName;
 		
 		return array;
 	}//getServerInfo

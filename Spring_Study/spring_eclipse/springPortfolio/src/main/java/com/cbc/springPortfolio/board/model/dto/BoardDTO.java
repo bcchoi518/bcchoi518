@@ -10,7 +10,10 @@ public class BoardDTO {
 	private String subject;
 	private String content;
 	private String email;
+	private String email1;
+	private String email2;
 	private String passwd;
+	private String viewPasswd;
 	private int refNo;
 	private int stepNo;
 	private int levelNo;
@@ -19,6 +22,7 @@ public class BoardDTO {
 	private String ip;
 	private int memberNo;
 	private int noticeNo;
+	private String noticeGubun;
 	private String secretGubun;
 	private Date regiDate;
 	private String attachInfo;
@@ -74,11 +78,29 @@ public class BoardDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public String getEmail1() {
+		return email1;
+	}
+	public void setEmail1(String email1) {
+		this.email1 = email1;
+	}
+	public String getEmail2() {
+		return email2;
+	}
+	public void setEmail2(String email2) {
+		this.email2 = email2;
+	}
 	public String getPasswd() {
 		return passwd;
 	}
 	public void setPasswd(String passwd) {
 		this.passwd = passwd;
+	}
+	public String getViewPasswd() {
+		return viewPasswd;
+	}
+	public void setViewPasswd(String viewPasswd) {
+		this.viewPasswd = viewPasswd;
 	}
 	public int getRefNo() {
 		return refNo;
@@ -128,6 +150,12 @@ public class BoardDTO {
 	public void setNoticeNo(int noticeNo) {
 		this.noticeNo = noticeNo;
 	}
+	public String getNoticeGubun() {
+		return noticeGubun;
+	}
+	public void setNoticeGubun(String noticeGubun) {
+		this.noticeGubun = noticeGubun;
+	}
 	public String getSecretGubun() {
 		return secretGubun;
 	}
@@ -171,18 +199,27 @@ public class BoardDTO {
 		this.nxtSubject = nxtSubject;
 	}
 	public String getSearchGubun() {
+		if (searchGubun == null) {
+			searchGubun = "";
+		}//if
 		return searchGubun;
 	}
 	public void setSearchGubun(String searchGubun) {
 		this.searchGubun = searchGubun;
 	}
 	public String getSearchData() {
+		if (searchData == null) {
+			searchData = "";
+		}//if
 		return searchData;
 	}
 	public void setSearchData(String searchData) {
 		this.searchData = searchData;
 	}
 	public int getPageNumber() {
+		if (pageNumber == 0) {
+			pageNumber = 1;
+		}//if
 		return pageNumber;
 	}
 	public void setPageNumber(int pageNumber) {

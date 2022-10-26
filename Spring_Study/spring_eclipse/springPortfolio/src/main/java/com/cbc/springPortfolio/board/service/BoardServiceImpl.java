@@ -1,6 +1,6 @@
 package com.cbc.springPortfolio.board.service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -26,7 +26,7 @@ public class BoardServiceImpl implements BoardService {
 	}//getMaxValue
 
 	@Override
-	public ArrayList<BoardDTO> getSelectAll(BoardDTO paramDto) {
+	public List<BoardDTO> getSelectAll(BoardDTO paramDto) {
 		return boardDao.getSelectAll(paramDto);
 	}//getSelectAll
 

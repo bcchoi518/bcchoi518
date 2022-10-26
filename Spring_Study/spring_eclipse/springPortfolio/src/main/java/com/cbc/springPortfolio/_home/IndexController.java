@@ -1,7 +1,5 @@
 package com.cbc.springPortfolio._home;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,10 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class IndexController {
 	
 	@RequestMapping("/")
-	public String index(Model model, HttpServletRequest request) {
+	public String index(Model model) {
 		
-		model.addAttribute("folderName", "_home");
-		model.addAttribute("fileName", "index");
-		return "main/main";
+		return "_home/index";
 	}//index
 }//IndexController
