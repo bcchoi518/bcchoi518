@@ -7,8 +7,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<sql id="search">
 		<choose>
-			<when test="searchGubun == 'id_name'">
-				AND (id LIKE '%' || #{searchData} || '%' OR name LIKE '%' || #{searchData} || '%')
+			<when test="searchGubun == 'writer_subject'">
+				AND (writer LIKE '%' || #{searchData} || '%' OR subject LIKE '%' || #{searchData} || '%')
 			</when>
 			<when test="searchGubun != null and searchGubun != '' and searchData != null and searchData != ''">
 				AND ${searchGubun} LIKE '%' || #{searchData} || '%'
@@ -26,7 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 						  FROM board 
 						 WHERE tbl = #{tbl}
 				 		<include refid="search"></include>
-				  	  ORDER BY no DESC
+				  	  ORDER BY noticeNo DESC, refNo DESC, levelNo ASC
 				  	   ) basic
 			   )
 		 WHERE rnum BETWEEN #{startRecord} AND #{lastRecord}
@@ -35,10 +35,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getSelectOne" resultType="com.cbc.springPortfolio.board.model.dto.BoardDTO">
 		SELECT *
 		  FROM (SELECT b.*,
-			   		   LAG(no) OVER (ORDER BY no DESC) preNo,
-			   		   LAG(subject) OVER (ORDER BY no DESC) preSubject,
-			   		   LEAD(no) OVER (ORDER BY no DESC) nxtNo,
-			   		   LEAD(subject) OVER (ORDER BY no DESC) nxtSubject
+			   		   LAG(no) OVER (ORDER BY noticeNo DESC, refNo DESC, levelNo ASC) preNo,
+			   		   LAG(subject) OVER (ORDER BY noticeNo DESC, refNo DESC, levelNo ASC) preSubject,
+			   		   LEAD(no) OVER (ORDER BY noticeNo DESC, refNo DESC, levelNo ASC) nxtNo,
+			   		   LEAD(subject) OVER (ORDER BY noticeNo DESC, refNo DESC, levelNo ASC) nxtSubject
 		  		  FROM board b
 		 		 WHERE tbl = #{tbl}
 	  	 		 <include refid="search"></include>

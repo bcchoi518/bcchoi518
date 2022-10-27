@@ -1,6 +1,8 @@
 package com.cbc.springPortfolio.board.model.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.inject.Inject;
@@ -22,8 +24,8 @@ public class BoardDAOImpl implements BoardDAO {
 	}//getTotalRecord
 
 	@Override
-	public int getMaxValue(String fieldName) {
-		return (int) Optional.ofNullable(sqlSession.selectOne("board.getMaxValue", fieldName)).orElse(0);
+	public int getMaxValue(BoardDTO paramDto) {
+		return (int) Optional.ofNullable(sqlSession.selectOne("board.getMaxValue", paramDto)).orElse(0);
 	}//getMaxValue
 
 	@Override

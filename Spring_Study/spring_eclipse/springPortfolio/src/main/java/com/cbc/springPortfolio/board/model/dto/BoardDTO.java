@@ -35,6 +35,7 @@ public class BoardDTO {
 	private int pageNumber;
 	private int startRecord;
 	private int lastRecord;
+	private String fieldName;
 	
 	public int getNo() {
 		return no;
@@ -236,5 +237,11 @@ public class BoardDTO {
 	}
 	public void setLastRecord(int lastRecord) {
 		this.lastRecord = lastRecord;
+	}
+	public String getFieldName() {
+		return fieldName;
+	}
+	public void setFieldName(String fieldName) {
+		this.fieldName = fieldName;
 	}
 }//BoardDTO

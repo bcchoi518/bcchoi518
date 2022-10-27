@@ -38,7 +38,7 @@ public class BoardController {
 		arguDto.setSearchData(searchData);
 		
 		int pageNumber = arguDto.getPageNumber();
-		int pageSize = 1;
+		int pageSize = 10;
 		int blockSize = 10;
 		int totalRecord = boardService.getTotalRecord(arguDto);
 		
@@ -161,7 +161,8 @@ public class BoardController {
 		Optional<Object> opt = Optional.ofNullable(session.getAttribute("sessionNo"));
 		int sessionNo = (int) opt.orElse(0);
 		
-		int num = boardService.getMaxValue("num") + 1;
+		arguDto.setFieldName("num");
+		int num = boardService.getMaxValue(arguDto) + 1;
 		String tbl = arguDto.getTbl();
 		String email = email1 +"@"+ email2;
 		int refNo = 0;
@@ -177,7 +178,8 @@ public class BoardController {
 		BoardDTO returnDto = boardService.getSelectOne(arguDto);
 		
 		if (arguDto.getNo() == 0) {//새글일때..
-			refNo = boardService.getMaxValue("refNo") + 1;
+			arguDto.setFieldName("refNo");
+			refNo = boardService.getMaxValue(arguDto) + 1;
 			stepNo = 1;
 			levelNo = 1;
 		} else if (returnDto.getNo() > 0) {//답글일때..
@@ -192,7 +194,8 @@ public class BoardController {
 		}//if
 
 		if (noticeGubun.equals("T")) {//공지글일때..
-			noticeNo = boardService.getMaxValue("noticeNo") + 1;
+			arguDto.setFieldName("noticeNo");
+			noticeNo = boardService.getMaxValue(arguDto) + 1;
 		}//if
 		
 		String searchGubun = util.getDecodedUrl(arguDto.getSearchGubun());
@@ -334,7 +337,8 @@ public class BoardController {
 		
 		int noticeNo = returnDto.getNoticeNo();
 		if (noticeNo == 0 && noticeGubun.equals("T")) {
-			noticeNo = boardService.getMaxValue("noticeNo") + 1;
+			arguDto.setFieldName("noticeNo");
+			noticeNo = boardService.getMaxValue(arguDto) + 1;
 		} else if (noticeNo > 0 && noticeGubun.equals("F")) {
 			noticeNo = 0;
 		}//if

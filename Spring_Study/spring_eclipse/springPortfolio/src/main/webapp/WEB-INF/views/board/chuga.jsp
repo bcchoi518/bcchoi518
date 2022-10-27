@@ -69,7 +69,9 @@
 		</tr>
 		<tr>
 			<td>내용</td>
-			<td><textarea name="content" style="width:99%; height:200px;">${content }</textarea></td>
+			<td>
+				<textarea name="content" style="width:99%; height:200px;"><c:if test="${requestScope.dto.no > 0 }">${content }&#10;-----------------------------------------------------------------------------------------------&#10;</c:if></textarea>
+			</td>
 		</tr>
 		<tr>
 			<td colspan="2" align="center" style="height:50px">

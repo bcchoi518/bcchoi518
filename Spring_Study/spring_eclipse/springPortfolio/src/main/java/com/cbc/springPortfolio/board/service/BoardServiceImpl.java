@@ -21,8 +21,8 @@ public class BoardServiceImpl implements BoardService {
 	}//getTotalRecord
 
 	@Override
-	public int getMaxValue(String fieldName) {
-		return boardDao.getMaxValue(fieldName);
+	public int getMaxValue(BoardDTO paramDto) {
+		return boardDao.getMaxValue(paramDto);
 	}//getMaxValue
 
 	@Override

@@ -27,9 +27,18 @@
 		<th>등록일</th>
 	</tr>
 	<c:if test="${fn:length(requestScope.list) <= 0 }">
-		<tr>
-			<td colspan="5" height="200px" style="text-align:center;">등록된 글이 없습니다.</td>
-		</tr>
+		<c:choose>
+			<c:when test="${fn:length(requestScope.searchGubun) > 0 }">
+				<tr>
+					<td colspan="5" height="200px" style="text-align:center;">검색된 글이 없습니다.</td>
+				</tr>
+			</c:when>
+			<c:otherwise>
+				<tr>
+					<td colspan="5" height="200px" style="text-align:center;">등록된 글이 없습니다.</td>
+				</tr>
+			</c:otherwise>
+		</c:choose>
 	</c:if>
 	<c:set var="cntDisplay" value="${requestScope.pagerMap.cntDisplay }" />
 	<c:forEach var="boardDto" items="${requestScope.list }">

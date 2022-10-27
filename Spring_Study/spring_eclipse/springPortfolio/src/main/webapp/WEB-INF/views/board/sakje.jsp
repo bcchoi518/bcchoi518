@@ -42,7 +42,7 @@
 		</tr>
 		<tr>
 			<td>내용</td>
-			<td style="height:200px; vertical-align:text-top;">${fn:replace(requestScope.dto.content, requestScope.newLine, '<br>') }</td>
+			<td style="height:200px; vertical-align:text-top;">${fn:replace(requestScope.dto.content, newLineChar, '<br>') }</td>
 		</tr>
 		<tr>
 			<td>조회수</td>

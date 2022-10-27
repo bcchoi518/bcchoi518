@@ -66,7 +66,7 @@
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td style="height:200px; vertical-align:text-top;">${fn:replace(requestScope.dto.content, requestScope.newLine, '<br>') }</td>
+				<td style="height:200px; vertical-align:text-top;">${fn:replace(requestScope.dto.content, newLineChar, '<br>') }</td>
 			</tr>
 			<tr>
 				<td>조회수</td>
@@ -77,57 +77,58 @@
 				<td>${requestScope.dto.regiDate }</td>
 			</tr>
 		</table>
+	
+		<%-- pre/next Start --%>
+		<div style="border: 0px solid red; padding-top:10px; width:80%;" align="center">
+			<table border="0" width="100%">
+				<tr>
+					<td width="100px" >이전글</td>
+					<td>
+						<c:if test="${requestScope.dto.preNo > 0 }">
+							<a href="#" onClick="move('view','${requestScope.dto.preNo }')">${requestScope.dto.preSubject }...</a>
+						</c:if>
+						<c:if test="${requestScope.dto.preNo <= 0 }">
+							이전 글이 없습니다.
+						</c:if>
+					</td>
+				</tr>
+				<tr>
+					<td>다음글</td>
+					<td>
+						<c:if test="${requestScope.dto.nxtNo > 0 }">
+							<a href="#" onClick="move('view','${requestScope.dto.nxtNo }')">${requestScope.dto.nxtSubject }...</a>
+						</c:if>
+						<c:if test="${requestScope.dto.nxtNo <= 0 }">
+							다음 글이 없습니다.
+						</c:if>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<%-- pre/next End --%>
+
+		<div style="border: 0px solid red; width: 80%; margin-top:10px;" align="right">
+		|
+		<a href="${path }/board/list?tbl=${requestScope.tbl }" >전체목록</a>
+		|
+		<a href="#" onclick="move('list')">목록</a>
+		|
+		<a href="#" onclick="move('chuga')">등록</a>
+		|
+		<a href="#" onclick="move('chuga','${requestScope.dto.no }')">답변</a>
+		|
+		<a href="#" onclick="move('sujung','${requestScope.dto.no }')">수정</a>
+		|
+		<a href="#" onclick="move('sakje','${requestScope.dto.no }')">삭제</a>
+		|
+		</div>
+
+	<%-- board Comment Start --%>
+		<a name="comment"></a>
+		<div id="commentResult" style="border: 0px solid red; margin: 10px 0px; width: 80%" align="center"></div>
+	<%-- board Comment End --%>
 	</c:otherwise>
 </c:choose>
-<%-- pre/next Start --%>
-<div style="border: 0px solid red; padding-top:10px; width:80%;" align="center">
-	<table border="0" width="100%">
-		<tr>
-			<td width="100px" >이전글</td>
-			<td>
-				<c:if test="${requestScope.dto.preNo > 0 }">
-					<a href="#" onClick="move('view','${requestScope.dto.preNo }')">${requestScope.dto.preSubject }...</a>
-				</c:if>
-				<c:if test="${requestScope.dto.preNo <= 0 }">
-					이전 글이 없습니다.
-				</c:if>
-			</td>
-		</tr>
-		<tr>
-			<td>다음글</td>
-			<td>
-				<c:if test="${requestScope.dto.nxtNo > 0 }">
-					<a href="#" onClick="move('view','${requestScope.dto.nxtNo }')">${requestScope.dto.nxtSubject }...</a>
-				</c:if>
-				<c:if test="${requestScope.dto.nxtNo <= 0 }">
-					다음 글이 없습니다.
-				</c:if>
-			</td>
-		</tr>
-	</table>
-</div>
-<%-- pre/next End --%>
-
-<div style="border: 0px solid red; width: 80%; margin-top:10px;" align="right">
-|
-<a href="${path }/board/list?tbl=${requestScope.tbl }" >전체목록</a>
-|
-<a href="#" onclick="move('list')">목록</a>
-|
-<a href="#" onclick="move('chuga')">등록</a>
-|
-<a href="#" onclick="move('chuga','${requestScope.dto.no }')">답변</a>
-|
-<a href="#" onclick="move('sujung','${requestScope.dto.no }')">수정</a>
-|
-<a href="#" onclick="move('sakje','${requestScope.dto.no }')">삭제</a>
-|
-</div>
-
-<%-- board Comment Start --%>
-	<a name="comment"></a>
-	<div id="commentResult" style="border: 0px solid red; margin: 10px 0px; width: 80%" align="center"></div>
-<%-- board Comment End --%>
 
 <script>
 	$(document).ready(function () {

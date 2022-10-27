@@ -12,4 +12,5 @@ public class IndexController {
 		
 		return "_home/index";
 	}//index
+	
 }//IndexController
