@@ -21,7 +21,7 @@
 			<a href="${path }/guestBook/list">방명록</a>
 		</td>
 		<td style="padding: 0px 10px;" id="board">
-			<a href="${path }/board/list">게시판</a>
+			<a href="${path }/board/list?tbl=freeBoard">자유게시판</a>
 		</td>
 		<td style="padding: 0px 10px;" id="boardChk">
 			<a href="${path }/boardChk/list">게시판관리</a>

@@ -8,6 +8,7 @@
 		<td style="padding:20px 0px">
 			<span id="procGubun" style="display:none">chuga</span>
 			<span id="no" style="display:none">${requestScope.no }</span>
+			<span id="tbl" style="display:none">${requestScope.tbl }</span>
 			<span id="commentNo" style="display:none"></span>
 			이름: <input type="text" name="commentWriter" id="commentWriter" size="10" value="" />
 			비밀번호: <input type="password" name="commentPasswd" id="commentPasswd" size="10" value="" /><br>
@@ -54,15 +55,15 @@
 	$('#btnCommentSave').click(function () {
 		if (confirm('OK?')) {
 		const param = {
-			no: $('#no').text(),
-			procGubun: $('#procGubun').text(),
-			commentNo: $('#commentNo').text(),
-			commentWriter: $('#commentWriter').val(),
-			commentPasswd: $('#commentPasswd').val(),
-			commentContent: $('#commentContent').val()
+			'no': $('#no').text(),
+			'tbl': $('#tbl').text(),
+			'commentNo': $('#commentNo').text(),
+			'writer': $('#commentWriter').val(),
+			'passwd': $('#commentPasswd').val(),
+			'content': $('#commentContent').val()
 		}//param
 		console.log(param);
-		const url = '${path }/board/commentProc';
+		const url = '${path }/boardCommentRest/'+ $('#procGubun').text();
 		$.ajax({
 			type: 'post',
 			data: param,

@@ -6,12 +6,14 @@
 <c:set var="subject" value=""/>
 <c:set var="content" value=""/>
 <c:set var="no" value="0"/>
+<c:set var="pageNumber" value="1"/>
 <c:choose>
 	<c:when test="${requestScope.dto.no > 0 }">
 		<h2>답변글등록</h2>
 		<c:set var="subject" value="${requestScope.dto.subject }"/>
 		<c:set var="content" value="${requestScope.dto.content }"/>
 		<c:set var="no" value="${requestScope.dto.no }"/>
+		<c:set var="pageNumber" value="${requestScope.pageNumber }"/>
 	</c:when>
 	<c:otherwise>
 		<h2>게시글등록</h2>
@@ -20,6 +22,8 @@
 
 <form name="DirForm">
 	<input type="hidden" name="no" value="${no }"/>
+	<input type="hidden" name="tbl" value="${requestScope.tbl }"/>
+	<input type="hidden" name="pageNumber" value="${pageNumber }"/>
 	<table border="1" align="center" width="80%">
 		<tr>
 			<td style="width:10%;">작성자</td>
@@ -108,10 +112,10 @@
 	}//save
 	
 	function move(value1, value2) {
-		let linkAddr = '${path }/board/' + value1 + '?${requestScope.searchQuery }';
+		let linkAddr = '${path }/board/' + value1 + '?tbl=${requestScope.tbl }&pageNumber=${requestScope.pageNumber }';
 		if (value2 != undefined) {
 			linkAddr += '&no=' + value2;
 		}//if
-		location.href = linkAddr;
+		location.href = linkAddr +'&${requestScope.searchQuery }';
 	}//move
 </script>

@@ -7,6 +7,8 @@
 
 <form name="DirForm">
 	<input type="hidden" name="no" value="${requestScope.dto.no }"/>
+	<input type="hidden" name="pageNumber" value="${requestScope.pageNumber }"/>
+	<input type="hidden" name="tbl" value="${requestScope.tbl }"/>
 	<table border="1" align="center" width="80%">
 		<tr>
 			<td style="width:10%;">작성자</td>
@@ -93,10 +95,10 @@
 	}//save
 	
 	function move(value1, value2) {
-		let linkAddr = '${path }/board/' + value1 + '?${requestScope.searchQuery }';
+		let linkAddr = '${path }/board/' + value1 + '?tbl=${requestScope.tbl }&pageNumber=${requestScope.pageNumber }';
 		if (value2 != undefined) {
 			linkAddr += '&no=' + value2;
 		}//if
-		location.href = linkAddr;
+		location.href = linkAddr +'&${requestScope.searchQuery }';
 	}//move
 </script>

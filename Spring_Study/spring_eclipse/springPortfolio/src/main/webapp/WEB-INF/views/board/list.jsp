@@ -64,7 +64,7 @@
 
 <div style="border: 0px solid red; width: 80%; margin-top:10px;" align="right">
 |
-<a href="${path }/board/list" >전체목록</a>
+<a href="${path }/board/list?tbl=${requestScope.tbl }" >전체목록</a>
 |
 <a href="#" onclick="move('list')">목록</a>
 |
@@ -75,6 +75,7 @@
 <%-- searchStart --%>
 <div style="border: 0px solid red; width: 80%; margin-top:10px;" align="center">
 	<form name="searchForm">
+		<input type="hidden" name="tbl" value="${requestScope.tbl }" />
 		<select name="searchGubun" id="searchGubun">
 			<option value="" selected>-- 선택 --</option>
 			<option value="writer" <c:if test="${requestScope.searchGubun == 'writer' }">selected</c:if>>작성자</option>
@@ -125,13 +126,13 @@
 <%-- pagerEnd --%>
 
 <script>
-	function move(value1, value2) {
-		let linkAddr = '${path }/board/' + value1 + '?${requestScope.searchQuery }';
-		if (value2 != undefined) {
-			linkAddr += '&no=' + value2;
-		}//if
-		location.href = linkAddr;
-	}//move
+function move(value1, value2) {
+	let linkAddr = '${path }/board/' + value1 + '?tbl=${requestScope.tbl }&pageNumber=${requestScope.pageNumber }';
+	if (value2 != undefined) {
+		linkAddr += '&no=' + value2;
+	}//if
+	location.href = linkAddr +'&${requestScope.searchQuery }';
+}//move
 	
 	function search() {
 		if (confirm('searchOK?')) {
@@ -142,6 +143,6 @@
 	}//search
 	
 	function goPage(value1) {
-		location.href = '${path }/board/list?pageNumber='+ value1 +'&searchGubun=${requestScope.searchGubun }&searchData=${requestScope.searchData }';
+		location.href = '${path }/board/list?tbl=${requestScope.tbl }&pageNumber='+ value1 +'&${requestScope.searchQuery }';
 	}//goPage
 </script>

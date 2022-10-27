@@ -1,6 +1,7 @@
 package com.cbc.springPortfolio.board.model.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.inject.Inject;
 
@@ -22,7 +23,7 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public int getMaxValue(String fieldName) {
-		return sqlSession.selectOne("board.getMaxValue", fieldName);
+		return (int) Optional.ofNullable(sqlSession.selectOne("board.getMaxValue", fieldName)).orElse(0);
 	}//getMaxValue
 
 	@Override
@@ -42,7 +43,7 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public int setUpdate(BoardDTO paramDto) {
-		return sqlSession.update("board.setInsert", paramDto);
+		return sqlSession.update("board.setUpdate", paramDto);
 	}//setUpdate
 
 	@Override

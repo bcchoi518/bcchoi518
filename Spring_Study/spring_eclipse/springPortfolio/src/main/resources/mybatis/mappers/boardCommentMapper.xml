@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="boardComment">
+	
+	<select id="getSelectAll" resultType="com.cbc.springPortfolio.board.model.dto.BoardCommentDTO">
+		SELECT *
+  		  FROM boardComment
+		 WHERE tbl = #{tbl} AND boardNo = #{boardNo}
+	  ORDER BY commentNo DESC
+	</select>
+	
+	<select id="getSelectOne" resultType="com.cbc.springPortfolio.board.model.dto.BoardCommentDTO">
+		SELECT *
+		  FROM boardComment
+	  	 WHERE tbl = #{tbl} AND boardNo = #{boardNo} AND commentNo = #{commentNo}
+	</select>
+	
+	<insert id="setInsert">
+		INSERT INTO boardComment
+			 VALUES (seq_boardComment.NEXTVAL, #{boardNo}, #{tbl}, #{writer}, #{content}, #{passwd}, #{memberNo}, #{ip}, SYSDATE, SYSDATE)
+	</insert>
+	
+	<update id="setUpdate">
+		UPDATE boardComment
+		   SET writer = #{writer}, content = #{content}, ip = #{ip}, modiDate = SYSDATE
+		 WHERE tbl = #{tbl} AND boardNo = #{boardNo} AND commentNo = #{commentNo} AND passwd = #{passwd}
+	</update>
+	
+	<delete id="setDelete">
+		DELETE FROM boardComment
+		 	  WHERE tbl = #{tbl} AND boardNo = #{boardNo} AND commentNo = #{commentNo} AND passwd = #{passwd}
+	</delete>
+	
+</mapper>

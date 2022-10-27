@@ -7,6 +7,8 @@
 	<c:when test="${requestScope.dto.secretGubun == 'T' && requestScope.viewPasswd != requestScope.dto.passwd }">
 		<form name="viewPasswdForm">
 			<input type="hidden" name="no" value="${requestScope.dto.no }" />
+			<input type="hidden" name="tbl" value="${requestScope.tbl }" />
+			<input type="hidden" name="pageNumber" value="${requestScope.pageNumber }"/>
 			<input type="hidden" name="searchGubun" value="${requestScope.searchGubun }" />
 			<input type="hidden" name="searchData" value="${requestScope.searchData }" />
 			<table border="0" align="center" style="margin:183px;">
@@ -108,7 +110,7 @@
 
 <div style="border: 0px solid red; width: 80%; margin-top:10px;" align="right">
 |
-<a href="${path }/board/list" >전체목록</a>
+<a href="${path }/board/list?tbl=${requestScope.tbl }" >전체목록</a>
 |
 <a href="#" onclick="move('list')">목록</a>
 |
@@ -134,9 +136,10 @@
 	
 	function commentList() {
 		const param = {
-				no : ${requestScope.dto.no }
+			'no' : ${requestScope.dto.no },
+			'tbl' : '${requestScope.tbl }'
 		}
-		const url = '${path }/board/commentList';
+		const url = '${path }/boardComment/list';
 		$.ajax({
 			type: 'post',
 			data: param,
@@ -148,10 +151,10 @@
 	}//commentList
 	
 	function move(value1, value2) {
-		let linkAddr = '${path }/board/' + value1 + '?${requestScope.searchQuery }';
+		let linkAddr = '${path }/board/' + value1 + '?tbl=${requestScope.tbl }&pageNumber=${requestScope.pageNumber }';
 		if (value2 != undefined) {
 			linkAddr += '&no=' + value2;
 		}//if
-		location.href = linkAddr;
+		location.href = linkAddr +'&${requestScope.searchQuery }';
 	}//move
 </script>

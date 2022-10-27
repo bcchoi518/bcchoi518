@@ -197,6 +197,11 @@ public class GuestBookController {
 		
 		GuestBookDTO returnDto = guestBookService.getSelectOne(arguDto);
 		
+		if (returnDto.getNo() <= 0) {
+			System.out.println("wrong no");
+			return "redirect:/"+ folderName +"/list";
+		}//if
+		
 		model.addAttribute("dto", returnDto);
 		model.addAttribute("pageNumber", arguDto.getPageNumber());
 		model.addAttribute("folderName", folderName);
