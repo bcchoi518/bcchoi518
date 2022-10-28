@@ -25,10 +25,11 @@ import com.cbc.springPortfolio.common.Util;
 public class BoardCommentRestController {
 	
 	@Inject
-	BoardCommentService boardCommentService;
+	private BoardCommentService boardCommentService;
 	@Inject
-	Util util;
-	String folderName = "board";
+	private Util util;
+	
+	private final String folderName = "board";
 	
 	@PostMapping("/chuga")
 	public String chuga(Model model, @ModelAttribute BoardCommentDTO arguDto, BindingResult bindingResult, HttpServletRequest request, HttpSession session) throws UnknownHostException {

@@ -8,8 +8,6 @@ public class MemoDTO {
     private String content;
     private Date regiDate;
     
-    private String procGubun;
-    
     private String searchGubun;
     private String searchData;
     
@@ -40,12 +38,6 @@ public class MemoDTO {
 	}
 	public void setRegiDate(Date regiDate) {
 		this.regiDate = regiDate;
-	}
-	public String getProcGubun() {
-		return procGubun;
-	}
-	public void setProcGubun(String procGubun) {
-		this.procGubun = procGubun;
 	}
 	public String getSearchGubun() {
 		if (searchGubun == null) {

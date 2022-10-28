@@ -21,11 +21,11 @@ import com.cbc.springPortfolio.memo.service.MemoService;
 public class MemoController {
 	
 	@Inject
-	MemoService memoService;
+	private MemoService memoService;
 	@Autowired
-	Util util;
+	private Util util;
 	
-	String folderName = "memo";
+	private final String folderName = "memo";
 	
 	@RequestMapping("/list")
 	public String list(Model model, @ModelAttribute MemoDTO arguDto, BindingResult bindingResult) {

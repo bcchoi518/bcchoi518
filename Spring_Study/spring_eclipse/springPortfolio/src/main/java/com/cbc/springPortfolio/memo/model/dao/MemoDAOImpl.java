@@ -13,7 +13,7 @@ import com.cbc.springPortfolio.memo.model.dto.MemoDTO;
 public class MemoDAOImpl implements MemoDAO {
 
 	@Inject
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 	
 	@Override
 	public List<MemoDTO> getSelectAll(MemoDTO paramDto) {

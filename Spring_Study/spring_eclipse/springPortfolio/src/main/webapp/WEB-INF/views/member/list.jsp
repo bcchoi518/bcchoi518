@@ -17,6 +17,7 @@
 	<c:set var="totalPage" value="${requestScope.pagerMap.totalPage == 0 ? 1 : requestScope.pagerMap.totalPage }" />
 	(${requestScope.pageNumber }/${totalPage })
 </div>
+
 <table border="1" width="80%" align="center">
 	<tr>
 		<th>순번</th>
@@ -65,6 +66,7 @@
 <a href="#" onclick="move('chuga')">등록</a>
 |
 </div>
+
 <%-- searchStart --%>
 <div style="border: 0px solid red; width: 80%; margin-top:10px;" align="center">
 	<form name="searchForm">

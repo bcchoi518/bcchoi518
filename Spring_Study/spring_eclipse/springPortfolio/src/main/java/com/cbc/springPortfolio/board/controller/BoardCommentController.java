@@ -18,8 +18,9 @@ import com.cbc.springPortfolio.board.service.BoardCommentService;
 public class BoardCommentController {
 	
 	@Inject
-	BoardCommentService boardCommentService;
-	String folderName = "board";
+	private BoardCommentService boardCommentService;
+	
+	private final String folderName = "board";
 	
 	@RequestMapping("/list")
 	public String list(Model model, @ModelAttribute BoardCommentDTO arguDto, BindingResult bindingResult) {

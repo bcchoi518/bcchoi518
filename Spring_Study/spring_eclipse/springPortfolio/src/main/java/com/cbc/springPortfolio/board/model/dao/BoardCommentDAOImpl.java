@@ -13,7 +13,7 @@ import com.cbc.springPortfolio.board.model.dto.BoardCommentDTO;
 public class BoardCommentDAOImpl implements BoardCommentDAO {
 
 	@Inject
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 	
 	@Override
 	public List<BoardCommentDTO> getSelectAll(BoardCommentDTO paramDto) {

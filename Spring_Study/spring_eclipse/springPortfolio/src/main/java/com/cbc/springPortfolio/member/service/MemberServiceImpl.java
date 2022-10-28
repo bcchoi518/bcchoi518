@@ -13,7 +13,7 @@ import com.cbc.springPortfolio.member.model.dto.MemberDTO;
 public class MemberServiceImpl implements MemberService {
 
 	@Inject
-	MemberDAO memberDao;
+	private MemberDAO memberDao;
 	
 	@Override
 	public List<MemberDTO> getSelectAll(MemberDTO paramDto) {

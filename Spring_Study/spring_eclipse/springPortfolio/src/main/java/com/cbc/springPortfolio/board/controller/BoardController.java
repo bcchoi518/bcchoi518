@@ -24,11 +24,11 @@ import com.cbc.springPortfolio.common.Util;
 public class BoardController {
 	
 	@Inject
-	BoardService boardService;
+	private BoardService boardService;
 	@Inject
-	Util util;
+	private Util util;
 	
-	String folderName = "board";
+	private final String folderName = "board";
 	
 	@RequestMapping("/list")
 	public String list(Model model, @ModelAttribute BoardDTO arguDto, BindingResult bindingResult) {

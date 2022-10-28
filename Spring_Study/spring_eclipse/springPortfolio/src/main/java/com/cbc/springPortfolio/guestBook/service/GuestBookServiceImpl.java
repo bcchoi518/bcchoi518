@@ -13,7 +13,7 @@ import com.cbc.springPortfolio.guestBook.model.dto.GuestBookDTO;
 public class GuestBookServiceImpl implements GuestBookService {
 
 	@Inject
-	GuestBookDAO guestBookDao;
+	private GuestBookDAO guestBookDao;
 	
 	@Override
 	public List<GuestBookDTO> getSelectAll(GuestBookDTO paramDto) {

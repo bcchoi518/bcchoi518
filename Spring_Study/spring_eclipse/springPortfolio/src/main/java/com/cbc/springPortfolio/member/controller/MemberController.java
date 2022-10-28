@@ -23,11 +23,11 @@ import com.cbc.springPortfolio.member.service.MemberService;
 public class MemberController {
 	
 	@Inject
-	MemberService memberService;
+	private MemberService memberService;
 	@Autowired
-	Util util;
+	private Util util;
 	
-	String folderName = "member";
+	private final String folderName = "member";
 	
 	@RequestMapping("/list")
 	public String list(Model model, @ModelAttribute MemberDTO arguDto) {

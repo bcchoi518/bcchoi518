@@ -405,7 +405,7 @@
           <div class="col-lg-12 col-md-12 icon-box" data-aos="fade-up" data-aos-delay="250">
             <div class="icon"><i class="bi bi-dice-5"></i></div>
             <h4 class="title">구직동기</h4>
-            <p class="description">&emsp;백엔드 분야 실무를 통하여 학업 수준을 벗어나 <strong>전문성을 기르고 싶어서 구직</strong>을 하게 되었습니다. 6개월 국비과정이 끝난 후 정작 실무에서 사용되는 스킬들은 학습할 시간이 부족했다고 느꼈으며 Spring Framework와 대용량 데이터 처리 등 <strong>실무에 필요한 스킬을 온라인 강의로 수강</strong>하고 있지만 <strong>경험 없이 하는 막연한 학습은 성장의 방향성이 명확하지 않다고 생각됩니다.</strong>
+            <p class="description">&emsp;백엔드 분야 실무를 통하여 학업 수준을 벗어나 <strong>전문성을 기르고 싶어서 구직</strong>을 하게 되었습니다. 6개월 국비과정이 끝난 후 실무에서 사용되는 스킬들은 학습할 시간이 부족했다고 느꼈으며 Spring Framework와 대용량 데이터 처리 등 <strong>실무에 필요한 스킬을 온라인 강의로 수강</strong>하고 있지만 <strong>경험 없이 하는 막연한 학습은 성장의 방향성이 명확하지 않다고 생각됩니다.</strong>
             비록 비전공자에 짧은 교육기간 이였지만 개발자로 성장하기 위해 열정적으로 새로운 지식들을 학습하였고 <strong>회사의 발전과 함께 성장해 나갈 수 있다고 자신합니다.</strong></p>
           </div>
         </div>
@@ -422,16 +422,16 @@
           <h2>Portfolio</h2>
         </div>
 
-        <div class="row" data-aos="fade-up">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li>
-            </ul>
-          </div>
-        </div>
+<!--         <div class="row" data-aos="fade-up"> -->
+<!--           <div class="col-lg-12 d-flex justify-content-center"> -->
+<!--             <ul id="portfolio-flters"> -->
+<!--               <li data-filter="*" class="filter-active">All</li> -->
+<!--               <li data-filter=".filter-app">App</li> -->
+<!--               <li data-filter=".filter-card">Card</li> -->
+<!--               <li data-filter=".filter-web">Web</li> -->
+<!--             </ul> -->
+<!--           </div> -->
+<!--         </div> -->
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
 
@@ -441,7 +441,7 @@
               <div class="portfolio-links">
                 <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
                   class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                <a href="${path }/member/list" title="More Details"><i class="bx bx-link"></i></a>
+                <a href="${path }/portfolioDetails" title="More Details"><i class="bx bx-link"></i></a>
               </div>
             </div>
           </div>
@@ -636,9 +636,6 @@
 
         <div class="section-title">
           <h2>Contact</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-            consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
-            in iste officiis commodi quidem hic quas.</p>
         </div>
 
         <div class="row" data-aos="fade-in">

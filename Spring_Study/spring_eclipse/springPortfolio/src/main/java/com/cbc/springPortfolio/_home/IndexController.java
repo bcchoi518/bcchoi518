@@ -13,4 +13,9 @@ public class IndexController {
 		return "_home/index";
 	}//index
 	
+	@RequestMapping("/portfolioDetails")
+	public String portfolioDetails(Model model) {
+		
+		return "_home/portfolioDetails";
+	}//portfolioDetails
 }//IndexController
