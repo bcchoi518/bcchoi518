@@ -1,0 +1,18 @@
+GET http://localhost:8090/calculate?operand1=10&operator=-&operand2=55
+
+<> 2022-11-01T124724.200.json
+
+###
+
+GET http://localhost:8090/calculate?operand1=10&operator=-&operand2=55
+
+<> 2022-11-01T124703.200.json
+
+###
+
+GET http://localhost:8090/calculate?operand1=10&operator= &operand2=55
+
+<> 2022-11-01T124605.200.json
+
+###
+
