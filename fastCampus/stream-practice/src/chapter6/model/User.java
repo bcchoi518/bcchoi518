@@ -1,5 +1,6 @@
 package chapter6.model;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,6 +9,7 @@ public class User {
   private String name;
   private String emailAddress;
   private boolean isVerified;
+  private LocalDateTime createdAt;
   private List<Integer> friendUserIds;
 
   public int getId() {
@@ -43,6 +45,15 @@ public class User {
 
   public User setVerified(boolean isVerified) {
     this.isVerified = isVerified;
+    return this;
+  }
+
+  public LocalDateTime getCreatedAt() {
+    return createdAt;
+  }
+
+  public User setCreatedAt(LocalDateTime createdAt) {
+    this.createdAt = createdAt;
     return this;
   }
 
