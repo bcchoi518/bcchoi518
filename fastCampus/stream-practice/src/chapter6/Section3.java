@@ -2,6 +2,7 @@ package chapter6;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -39,7 +40,7 @@ public class Section3 {
         .setEmailAddress("charlie@mail.com");
 
     List<User> users = Arrays.asList(user1, user2, user3);
-    List<String> emailAddresses = users.stream()
+    List<Optional<String>> emailAddresses = users.stream()
         .map(User::getEmailAddress)
         .collect(Collectors.toList());
     // System.out.println(emailAddresses);

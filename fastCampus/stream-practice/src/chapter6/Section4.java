@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import chapter6.model.Order;
@@ -30,7 +31,7 @@ public class Section4 {
 
     List<User> users = Arrays.asList(user1, user2, user3);
 
-    List<String> emailAddresses = users.stream()
+    List<Optional<String>> emailAddresses = users.stream()
         .filter(user -> !user.isVerified())
         .map(User::getEmailAddress)
         .collect(Collectors.toList());
