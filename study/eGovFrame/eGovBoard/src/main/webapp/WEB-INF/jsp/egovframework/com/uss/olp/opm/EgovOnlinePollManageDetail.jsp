@@ -87,7 +87,7 @@
 <table class="wTable" summary="<spring:message code="common.summary.list" arguments="${pageTitle}" />">
 <caption>${pageTitle} <spring:message code="title.create" /></caption>
 <colgroup>
-	<col style="width: 22%;"><col style="width: ;">
+	<col style="width: 22%;"><col style="width:auto;">
 </colgroup>
 <tbody>
 	<!-- 입력 -->

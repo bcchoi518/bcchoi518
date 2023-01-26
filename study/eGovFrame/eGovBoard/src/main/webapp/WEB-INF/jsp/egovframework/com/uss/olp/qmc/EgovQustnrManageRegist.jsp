@@ -138,7 +138,7 @@ String.prototype.replaceAll = function(src, repl){
 	<caption>${pageTitle} <spring:message code="title.create" /></caption>
 	<colgroup>
 		<col style="width:25%;">
-		<col style="width: ;">		
+		<col style="width:auto;">
 	</colgroup>
 	<tbody >
 		<!-- 입력 -->
