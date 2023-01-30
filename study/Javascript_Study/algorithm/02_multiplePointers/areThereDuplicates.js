@@ -1,7 +1,6 @@
 function areThereDuplicates(...args) {
   // Two pointers
   args.sort((a, b) => a - b);
-  console.log(args);
   let start = 0;
   let next = 1;
   while (next < args.length) {
