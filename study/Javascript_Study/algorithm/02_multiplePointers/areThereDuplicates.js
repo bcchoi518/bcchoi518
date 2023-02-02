@@ -1,6 +1,11 @@
 function areThereDuplicates(...args) {
   // Two pointers
-  args.sort((a, b) => a - b);
+  if (isNaN(args)) {
+    args.sort();
+  } else {
+    args.sort((a, b) => a - b);
+  }
+
   let start = 0;
   let next = 1;
   while (next < args.length) {
