@@ -1,9 +1,9 @@
 function reverse(str) {
-  if (str.length === 1) {
+  if (str.length <= 1) {
     return str;
   }
 
-  return str[str.length - 1].concat(reverse(str.substring(0, str.length - 1)));
+  return reverse(str.slice(1)) + str[0];
 }
 
 console.log(reverse("awesome")); // 'emosewa'
