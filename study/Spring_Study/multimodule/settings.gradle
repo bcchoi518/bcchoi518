@@ -1,0 +1,6 @@
+rootProject.name = 'multimodule'
+
+// root Project에 생성한 모듈을 include 하여야 함
+include 'module-api'
+include 'module-common'
+// common 모듈은 서버를 실행하지 않기 떄문에 Application 파일을 삭제함

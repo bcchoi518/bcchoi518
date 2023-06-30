@@ -1,0 +1,42 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.13'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'dev.be'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '11'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	implementation project(':module-common') // root project 의 setting.gradle에 선언한 값과 동일해야 함.
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+// error 처리
+// spring이 프로젝트를 로딩할때 settings.gradle 이 여러개가 있으면 root project에 있는것 보다 module 에 있는 것을 우선으로 처리함
+// root project 외 module의 settings.gradle은 삭제하여야 함
+
+// Task 'prepareKotlinBuildScriptModel' not found in project ':module-api'. 에러 방지용 작성
+tasks.register("prepareKotlinBuildScriptModel") {}
