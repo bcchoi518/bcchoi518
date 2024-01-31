@@ -1,6 +1,5 @@
-# Optional 
-This chapter includes 24 problems meant to draw several rules for working with **Optional**. The problems and solutions presented in this section 
-are based on the Brian Goetz (Java’s language architect) definition: *Optional is intended to provide a limited mechanism for library method 
-return types where there needed to be a clear way to represent “no result," and using null for such was overwhelmingly likely to cause errors.*
- But, where there are rules there are exceptions as well. Therefore, do not conclude that the rules (or practices) presented here should be 
-followed (or avoided) at all costs. Like always, it’s an it depends problem that requires to evaluate the situation and weight pros and cons.
+# Optional
+
+This chapter includes 24 problems meant to draw several rules for working with **Optional**. The problems and solutions presented in this section are based on the Brian Goetz (Java’s language architect) definition: _Optional is intended to provide a limited mechanism for library method return types where there needed to be a clear way to represent “no result," and using null for such was overwhelmingly likely to cause errors._ But, where there are rules there are exceptions as well. Therefore, do not conclude that the rules (or practices) presented here should be followed (or avoided) at all costs. Like always, it’s an it depends problem that requires to evaluate the situation and weight pros and cons.
+
+이 장에는 **Optional**으로 작업하기 위한 몇 가지 규칙을 도출하기 위한 24개의 문제가 포함되어 있습니다. 이 섹션에 제시된 문제와 해결책은 는 브라이언 괴츠(Brian Goetz, Java의 언어 설계자)의 정의를 기반으로 합니다: _Optional은 라이브러리 메서드에 대한 제한된 메커니즘을 제공하기 위한 것입니다. 반환 유형에 대한 제한된 메커니즘을 제공하기 위한 것이며, "결과 없음"을 표현하는 명확한 방법이 필요하고 이러한 경우 null을 사용하면 오류가 발생할 가능성이 압도적으로 높았습니다._ 그러나 규칙이 있는 곳에는 예외도 있습니다. 따라서 여기에 제시된 규칙(또는 관행)을 무조건 따라야 한다고 단정해서는 안 됩니다. (또는 피해야 한다고) 단정해서는 안 됩니다. 항상 그렇듯이 상황에 따라 장단점을 평가해야 하는 문제입니다.
