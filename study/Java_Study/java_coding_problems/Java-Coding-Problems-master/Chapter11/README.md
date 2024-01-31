@@ -1,6 +1,5 @@
 # Concurrency - Deep dive
-Chapters 10 and 11 includes 27 problems that involve Java concurrency. It starts with fundamental problems about threads lifecycle and object/class
- level locking. It continues with a bunch of problems about thread pools in Java including JDK 8 work-stealing thread pool. Afterwards, we
- have problems dedicated to **Callable**, **Future** and **CompletableFuture**. Next, we dedicate several problems to Java synchronizers (e.g., barrier,
- semaphore, exchanger, etc). Finally, we have problems for fork/join framework, **ReentrantLock**, **ReentrantReadWriteLock**, **StampedLock**, atomic
- variables, tasks cancellation, interruptible methods, and deadlocks. 
+
+Chapters 10 and 11 includes 27 problems that involve Java concurrency. It starts with fundamental problems about threads lifecycle and object/class level locking. It continues with a bunch of problems about thread pools in Java including JDK 8 work-stealing thread pool. Afterwards, we have problems dedicated to **Callable**, **Future** and **CompletableFuture**. Next, we dedicate several problems to Java synchronizers (e.g., barrier, semaphore, exchanger, etc). Finally, we have problems for fork/join framework, **ReentrantLock**, **ReentrantReadWriteLock**, **StampedLock**, atomic variables, tasks cancellation, interruptible methods, and deadlocks.
+
+10장과 11장에서는 Java 동시성과 관련된 27가지 문제를 다룹니다. 스레드 라이프사이클과 객체/클래스 수준 잠금에 대한 기본적인 문제로 시작합니다. 이어서 JDK 8의 작업 도용 스레드 풀을 비롯한 Java의 스레드 풀에 대한 여러 가지 문제를 다룹니다. 그 후, 우리는 **Callable**, **Future**, **CompletableFuture**에 대한 문제를 다룹니다. 다음으로 Java 동기화기(예: barrier, 세마포어, 교환기 등). 마지막으로 포크/조인 프레임워크, **ReentrantLock**, **ReentrantReadWriteLock**, **StampedLock**, 원자 변수 변수, 작업 취소, 중단 가능한 메서드 및 교착 상태에 대한 문제가 있습니다.
