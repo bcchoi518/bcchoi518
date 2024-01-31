@@ -1,7 +1,5 @@
-# Functional style programming - Deep dive 
-Chapter 8 and 9 includes 33 problems that involve Java functional style programming. The chapter starts with a problem meant to provide a 
-complete journey from 0 to functional interfaces. It continues with a suite of design patterns from GoF interpreted in Java functional 
-style. Next, we focus on several problems that involves classical operations encountered in streams (e.g., filter, map, etc), we discuss 
-infinite streams, null-safe streams and default methods. A comprehensive list of problems covers grouping, partitioning, and collectors, 
-including JDK 12 **teeing()** collector and writing a custom collector. In addition, **takeWhile()**, **dropWhile()**, composing functions, predicates 
-and comparators, testing and debugging lambdas, and other cool topics are discussed as well.
+# Functional style programming - Deep dive
+
+Chapter 8 and 9 includes 33 problems that involve Java functional style programming. The chapter starts with a problem meant to provide a complete journey from 0 to functional interfaces. It continues with a suite of design patterns from GoF interpreted in Java functional style. Next, we focus on several problems that involves classical operations encountered in streams (e.g., filter, map, etc), we discuss infinite streams, null-safe streams and default methods. A comprehensive list of problems covers grouping, partitioning, and collectors, including JDK 12 **teeing()** collector and writing a custom collector. In addition, **takeWhile()**, **dropWhile()**, composing functions, predicates and comparators, testing and debugging lambdas, and other cool topics are discussed as well.
+
+8장과 9장에는 Java 함수형 스타일 프로그래밍과 관련된 33개의 문제가 포함되어 있습니다. 이 장은 0에서 함수형 인터페이스에 이르기까지 0에서 함수형 인터페이스로의 완전한 여정을 제공하기 위한 문제로 시작합니다. 이어서 Java 함수형 스타일로 해석된 GoF의 디자인 패턴 모음인 스타일로 해석한 디자인 패턴을 살펴봅니다. 다음으로, 스트림에서 발생하는 고전적인 연산(예: 필터, 맵 등)과 관련된 몇 가지 문제에 집중하여 다음과 같이 논의합니다. 무한 스트림, 널 안전 스트림 및 기본 메서드에 대해 설명합니다. 그룹화, 파티셔닝, 콜렉터에 대한 포괄적인 문제도 다룹니다, JDK 12 **teeing()** 콜렉터와 사용자 정의 콜렉터 작성을 포함합니다. 또한 **takeWhile()**, **dropWhile()**, 함수 구성하기, 술어 및 비교자, 람다 테스트 및 디버깅, 기타 멋진 주제에 대해서도 다룹니다.
