@@ -1,13 +1,26 @@
+import os
+import sys
+import configparser as parser                     # 외부설정파일을 읽기 위한 import
+import time                                       # 페이지 로딩을 기다리는데에 사용할 time 모듈 import
 from selenium import webdriver                    # selenium의 webdriver를 사용하기 위한 import
 from selenium.webdriver.common.keys import Keys   # selenium으로 키를 조작하기 위한 import
 from selenium.webdriver.common.by import By       # selenium으로 Element를 선택하기 위한 import
 from datetime import datetime                     # 현재 시각을 구하기 위한 import
-import configparser as parser                     # 외부설정파일을 읽기 위한 import
-import time                                       # 페이지 로딩을 기다리는데에 사용할 time 모듈 import
+
+# config.ini 파일을 못 읽어들여서 추가한 코드 (여전히 잘 못 읽어들여서 수동으로 attendance/data로 폴더 복사함)
+if getattr(sys, 'frozen', False):
+    # exe로 실행한 경우, exe를 보관한 디렉토리의 full path를 취득
+    program_directory = os.path.dirname(os.path.abspath(sys.executable))
+else:
+    # python py로 실행한 경우, py를 보관한 디렉토리의 full path를 취득
+    program_directory = os.path.dirname(os.path.abspath(__file__))
+# 현재 작업 디렉토리를 변경
+os.chdir(program_directory)
+
 
 # 설정 파일 읽기
 configs = parser.ConfigParser()
-configs.read('attendance\config.ini')
+configs.read('.\data\config.ini')
 
 # id, pw 값 읽기
 id = configs['account']['id']
@@ -40,4 +53,4 @@ if 8 < hr < 9 :
 elif 17 < hr :
   driver.find_element(By.XPATH, '//*[@id="workOut"]/span').click()
 
-time.sleep(60)
+time.sleep(10)
