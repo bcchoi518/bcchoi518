@@ -48,7 +48,7 @@ now = datetime.now()
 hr = now.hour
 
 # 현재 시각이 9시 전이면 출근, 18시 이후면 퇴근 버튼 클릭
-if 8 < hr < 9 :
+if 6 <= hr < 9 :
   driver.find_element(By.XPATH, '//*[@id="workIn"]/span').click()
 elif 17 < hr :
   driver.find_element(By.XPATH, '//*[@id="workOut"]/span').click()
