@@ -53,6 +53,8 @@ driver.find_element(By.ID, 'login_submit').click()    # 로그인 버튼을 찾�
 driver.implicitly_wait(10)    # 로딩 될때까지 최대 10초 기다리기
 
 # 화면 청소
+popups = driver.find_elements(By.XPATH, '//*[@id="go_popup_close_icon"]/span[1]')
+for pop in popups: pop.click()
 driver.find_element(By.XPATH, '//*[@id="advancedGuideLayer"]/div/div[5]/a[1]').click()
 driver.find_element(By.XPATH, '//*[@id="myInfo"]/span/div/div/a[1]').click()
 driver.find_element(By.XPATH, '//*[@id="closeBadge"]/span').click()
