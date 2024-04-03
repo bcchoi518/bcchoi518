@@ -19,11 +19,12 @@ os.chdir(program_directory)
 
 # 설정 파일 읽기
 configs = parser.ConfigParser()
-configs.read('.\data\config.ini')
+configs.read('.\data\config.ini', encoding="UTF-8")
 
-# id, pw 값 읽기
+# id, pw, name 값 읽기
 id = configs['account']['id']
 pw = configs['account']['pw']
+name = '(' + configs['account']['name'] + ')'
 
 # options 값 읽기
 pcOnOff = configs['options']['pcOnOff']   # 퇴근 후 PC 종료 여부
@@ -40,24 +41,48 @@ endDate = datetime.strptime(holidayEnd, '%Y-%m-%d').date()
 if startDate <= today <= endDate :
   sys.exit()
 
+# 일정url, 근태관리url
+scheduleUrl = "https://gonet.daouoffice.com/login?returnUrl=%2Fapp%2Fcalendar%2Fdaily%2F" + today.strftime('%Y-%m-%d')
+attendanceUrl = "https://gonet.daouoffice.com/app/ehr"
+
 driver = webdriver.Chrome()   # 크롬 드라이버 실행
 driver.maximize_window()    # 윈도우 창 크기 최대사이즈로 설정
-driver.get('https://gonet.daouoffice.com/login?returnUrl=%2Fapp%2Fehr')   # 원하는 페이지 로딩
+driver.get(scheduleUrl)   # 원하는 페이지 로딩
 
-driver.implicitly_wait(10)    # 로딩 될때까지 최대 10초 기다리기
+driver.implicitly_wait(5)    # 로딩 될때까지 최대 5초 기다리기
 
 driver.find_element(By.ID, 'username').send_keys(id)   # 아이디 입력란을 찾아 아이디 입력
+time.sleep(0.2)
 driver.find_element(By.ID, 'password').send_keys(pw)   # 비밀번호 입력란을 찾아 아이디 입력
+time.sleep(0.2)
 driver.find_element(By.ID, 'login_submit').click()    # 로그인 버튼을 찾아 클릭
 
-driver.implicitly_wait(10)    # 로딩 될때까지 최대 10초 기다리기
+driver.implicitly_wait(3)    # 로딩 될때까지 최대 3초 기다리기
 
 # 화면 청소
 popups = driver.find_elements(By.XPATH, '//*[@id="go_popup_close_icon"]/span[1]')
 for pop in popups: pop.click()
+time.sleep(0.3)
 driver.find_element(By.XPATH, '//*[@id="advancedGuideLayer"]/div/div[5]/a[1]').click()
+time.sleep(0.3)
 driver.find_element(By.XPATH, '//*[@id="myInfo"]/span/div/div/a[1]').click()
-driver.find_element(By.XPATH, '//*[@id="closeBadge"]/span').click()
+
+try:
+  # 다우 오피스 캘린더에서 금일 일정 가져오기
+  infoElement = driver.find_element(By.CSS_SELECTOR, 'tbody > tr:nth-child(1) > td.cell > div > a > span.info')
+  nameElement = driver.find_element(By.CSS_SELECTOR, 'tbody > tr:nth-child(1) > td.cell > div > a > span.name')
+
+  # 휴가중이면 프로그램 종료
+  if (infoElement.text == '휴가신청서' and nameElement.text == name):
+    sys.exit()
+except:
+  pass
+
+driver.get(attendanceUrl)   # 근태관리 페이지 로딩
+
+driver.implicitly_wait(5)    # 로딩 될때까지 최대 5초 기다리기
+
+driver.find_element(By.XPATH, '//*[@id="closeBadge"]/span').click()   # 화면 청소
 
 # 현재 시각 구하기
 hr = now.hour
@@ -72,3 +97,6 @@ elif 17 < hr :
     os.system('shutdown -s -f -t 0')
 
 time.sleep(2)   # 퇴근 동작 여부를 확인하기 위한 시간
+
+# driver 종료
+driver.quit()
