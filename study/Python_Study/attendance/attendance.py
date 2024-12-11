@@ -8,11 +8,11 @@ from datetime import datetime                     # 현재 시각을 구하기 �
 
 # config.ini 파일을 못 읽어들여서 추가한 코드 (여전히 잘 못 읽어들여서 수동으로 attendance/data로 폴더 복사함)
 if getattr(sys, 'frozen', False):
-    # exe로 실행한 경우, exe를 보관한 디렉토리의 full path를 취득
-    program_directory = os.path.dirname(os.path.abspath(sys.executable))
+  # exe로 실행한 경우, exe를 보관한 디렉토리의 full path를 취득
+  program_directory = os.path.dirname(os.path.abspath(sys.executable))
 else:
-    # python py로 실행한 경우, py를 보관한 디렉토리의 full path를 취득
-    program_directory = os.path.dirname(os.path.abspath(__file__))
+  # python py로 실행한 경우, py를 보관한 디렉토리의 full path를 취득
+  program_directory = os.path.dirname(os.path.abspath(__file__))
 # 현재 작업 디렉토리를 변경
 os.chdir(program_directory)
 
@@ -59,16 +59,36 @@ driver.find_element(By.ID, 'login_submit').click()    # 로그인 버튼을 찾�
 
 driver.implicitly_wait(3)    # 로딩 될때까지 최대 3초 기다리기
 
+# 패스워드 변경화면 시 다음에 변경하기
+try:
+  driver.find_element(By.XPATH, '//*[@id="changeLater"]').click()
+except:
+  pass
+
+driver.implicitly_wait(3)    # 로딩 될때까지 최대 3초 기다리기
+
 # 화면 청소
-popups = driver.find_elements(By.XPATH, '//*[@id="go_popup_close_icon"]/span[1]')
-for pop in popups: pop.click()
+try:
+  popups = driver.find_elements(By.XPATH, '//*[@id="go_popup_close_icon"]/span[1]')
+  for pop in popups: pop.click()
+except:
+  pass
+
 time.sleep(0.3)
-driver.find_element(By.XPATH, '//*[@id="advancedGuideLayer"]/div/div[5]/a[1]').click()
-time.sleep(0.3)
-driver.find_element(By.XPATH, '//*[@id="myInfo"]/span/div/div/a[1]').click()
 
 try:
-  # 다우 오피스 캘린더에서 금일 일정 가져오기
+  driver.find_element(By.XPATH, '//*[@id="advancedGuideLayer"]/div/div[5]/a[1]').click()
+except:
+  pass
+
+time.sleep(0.3)
+try:
+  driver.find_element(By.XPATH, '//*[@id="myInfo"]/span/div/div/a[1]').click()
+except:
+  pass
+
+# 다우 오피스 캘린더에서 금일 일정 가져오기
+try:
   infoElement = driver.find_element(By.CSS_SELECTOR, 'tbody > tr:nth-child(1) > td.cell > div > a > span.info')
   nameElement = driver.find_element(By.CSS_SELECTOR, 'tbody > tr:nth-child(1) > td.cell > div > a > span.name')
 
@@ -82,7 +102,11 @@ driver.get(attendanceUrl)   # 근태관리 페이지 로딩
 
 driver.implicitly_wait(5)    # 로딩 될때까지 최대 5초 기다리기
 
-driver.find_element(By.XPATH, '//*[@id="closeBadge"]/span').click()   # 화면 청소
+# 화면 청소
+try:
+  driver.find_element(By.XPATH, '//*[@id="closeBadge"]/span').click()
+except:
+  pass
 
 # 현재 시각 구하기
 hr = now.hour
@@ -91,7 +115,7 @@ hr = now.hour
 if 6 <= hr < 9 :
   driver.find_element(By.XPATH, '//*[@id="workIn"]/span').click()
 elif 17 < hr :
-  driver.find_element(By.XPATH, '//*[@id="workOut"]/span').click()
+  workOutElem = driver.find_element(By.XPATH, '//*[@id="workOut"]/span').click()
   if pcOnOff == 'off' :   # 퇴근 후 PC 종료 여부 off 면 즉시 종료
     time.sleep(2)
     os.system('shutdown -s -f -t 0')
